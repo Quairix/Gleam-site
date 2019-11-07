@@ -4,6 +4,7 @@
         <input type="text" v-model="search" placeholder="search blogs" />
         <div v-for="blog in filteredBlogs" class="single-blog">
             <router-link v-bind:to="'/blog/' + blog.id"><h2>{{ blog.title }}</h2></router-link>
+            <h3>{{ blog.price }}</h3>
             <article>{{ blog.content }}</article>
         </div>
     </div>

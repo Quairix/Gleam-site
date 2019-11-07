@@ -16,6 +16,8 @@
       @change="detectFiles($event)" />
       <label>Название:</label>
       <input type="text" v-model.lazy="blog.title" required />
+      <label>Цена:</label>
+      <input type="text" v-model.lazy="blog.price" required />
       <label>Описание:</label>
       <textarea v-model.lazy.trim="blog.content"></textarea>
       <div id="checkboxes">
@@ -36,6 +38,19 @@
       <hr />
       <button v-on:click.prevent="post">Добавить</button>
     </form>
+    <v-progress-circular
+        v-if="uploading && !uploadEnd"
+        :size="100"
+        :width="15"
+        :rotate="360"
+        :value="progressUpload"
+        color="primary">
+        %
+      </v-progress-circular>
+      <img
+        v-if="uploadEnd"
+        :src="downloadURL"
+        width="100%" />
     <div v-if="submitted">
       <h3>Модель добавлена.</h3>
     </div>
@@ -49,9 +64,15 @@ export default {
   data() {
     return {
       blog: {
+        progressUpload: 0,
+      fileName: '',
+      uploadTask: '',
+      uploading: false,
+      uploadEnd: false,
+      downloadURL: '',
         title: "",
+        price: "",
         content: "",
-        image: null,
         categories: [],
         author: ""
       },
@@ -60,6 +81,20 @@ export default {
     };
   },
   methods: {
+    selectFile () {
+      this.$refs.uploadInput.click()
+    },
+    detectFiles (e) {
+      let fileList = e.target.files || e.dataTransfer.files
+      Array.from(Array(fileList.length).keys()).map(x => {
+        this.upload(fileList[x])
+      })
+    },
+    upload (file) {
+      this.fileName = file.name
+      this.uploading = true
+      this.uploadTask = firestorage.ref('images/' + file.name).put(file)
+    },
     post: function() {
       this.$http
         .post("https://gleam-1cb98.firebaseio.com/posts.json", this.blog)
@@ -68,11 +103,33 @@ export default {
           this.submitted = true;
         });
     }
+  },
+  watch: {
+    uploadTask: function () {
+      this.uploadTask.on('state_changed', sp => {
+        this.progressUpload = Math.floor(sp.bytesTransferred / sp.totalBytes * 100)
+      },
+      null,
+      () => {
+        this.uploadTask.snapshot.ref.getDownloadURL().then(downloadURL => {
+          this.uploadEnd = true
+          this.downloadURL = downloadURL
+          this.$emit('downloadURL', downloadURL)
+        })
+      })
+    }
   }
 };
 </script>
 
 <style scoped>
+.progress-bar {
+  margin: 10px 0;
+}
+input[type="file"] {
+  position: absolute;
+  clip: rect(0,0,0,0);
+}
 #add-blog * {
   box-sizing: border-box;
 }

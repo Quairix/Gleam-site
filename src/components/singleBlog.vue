@@ -1,6 +1,7 @@
 <template>
     <div id="single-blog">
         <h1>{{ blog.title }}</h1>
+        <h3>{{ blog.price }}</h3>
         <article>{{ blog.content }}</article>
         <p>Производитель: {{ blog.author }}</p>
         <p>Категории:</p>
