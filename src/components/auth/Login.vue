@@ -2,7 +2,7 @@
 <div class="row">
   <div class="col-md-6 offset-md-3 col-sm-12 offset-sm-1">
     <form id="login-form" role="form" style="display: block;">
-      <h3 class="text-center">Login</h3>
+      <h3 class="text-center">Авторизация</h3>
       <div class="form-group">
         <input type="email" name="email" id="email" class="form-control" placeholder="Email" v-model="email">
       </div>

@@ -1,7 +1,17 @@
 <template>
 <div>
-  <h2>Index  </h2>
-  <a href="/store">Магазин</a>
+  <h1>Вот сайт,</h1>
+  <h2>
+который построил Dev отдел.
+</h2>
+  <h3>А это описание,
+которое в других отделах хранится</h3>
+<p>В проекте,
+которым руководит Директор.</p>
+          <router-link tag='p' to="/store"  >
+          <a  class="nav-link">Магазин</a>
+          </router-link>
+          
 </div>
 </template>
 
