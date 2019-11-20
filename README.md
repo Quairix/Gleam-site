@@ -1,18 +1,29 @@
-# cli-project
+# vuejs-shopping-apps
 
-> A Vue.js project
+> Магазин на VueJS
 
-## Build Setup
+## Get Started
 
 ``` bash
-# install dependencies
+# установка зависимостей
 npm install
 
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
+# запуск на localhost:8080
+npm run serve
 ```
 
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+Можно использовать данные в `data/` директории для импорта в `products` ветвь вашей firebase.
+
+## Функции
+
+Этот проект обладает следующим функционалом:
+* Авторизация и регистрация
+* Занесение данных через API Firebase
+* Добавление/удаление товара из корзины
+* Создана начальная страница
+
+## Технические детали
+
+* VueJS [^2.2.1]
+* [Bootstrap 4](https://getbootstrap.com/)
+* Firebase (auth and realtime database)

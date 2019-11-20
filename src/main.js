@@ -1,21 +1,46 @@
-import Vue from 'vue'
-import VueResource from 'vue-resource'
-import VueRouter from 'vue-router'
-import App from './App.vue'
-import Routes from './routes'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
 
-// Use packages
-Vue.use(VueResource);
+import { routes } from './routes';
+import store from './stores/store';
+import { firebaseListener } from './config/firebaseConfig';
+import './assets/styles/app.scss'
+
+import App from './App.vue';
+
 Vue.use(VueRouter);
 
-// Register routes
+
+firebaseListener(authStatusChange);
+
+
 const router = new VueRouter({
-    routes: Routes,
-    mode: 'history'
+	mode: 'history',
+	routes
 });
+
+// router.beforeEach((to, from, next) => {
+//     if (to.onlyGuest && store.getters.isLoggedIn) {
+//         next('/');
+//     } else {
+//         next();
+//     }
+// });
+
 
 new Vue({
   el: '#app',
-  render: h => h(App),
-  router: router
+  router,
+  store,
+  render: h => h(App)
 })
+
+function authStatusChange(loggedIn, user) {
+	if (store) {
+		store.commit('AUTH_STATUS_CHANGE');
+		if (user) {
+			store.dispatch('getShoppingCart', {uid: user.uid, currentCart: store.getters.cartItemList});
+		}
+	}
+
+}

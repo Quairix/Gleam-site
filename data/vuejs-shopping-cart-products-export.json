@@ -1,0 +1,57 @@
+[ {
+  "description" : "Описание проектора1",
+  "id" : 1,
+  "price" : 2399,
+  "quantity" : 10,
+  "thumbnail_url" : "https://sun9-44.userapi.com/c855628/v855628038/13a937/ke9MuY3cBRI.jpg",
+  "title" : "Проектор1"
+}, {
+  "description" : "Описание проектора2",
+  "id" : 2,
+  "price" : 1199,
+  "quantity" : 15,
+  "thumbnail_url" : "https://sun9-64.userapi.com/c858532/v858532726/19f83/XZR_aCzsUC8.jpg",
+  "title" : "Проектор2"
+}, {
+  "description" : "Описание проектора10",
+  "id" : 10,
+  "price" : 2399,
+  "quantity" : 10,
+  "thumbnail_url" : "https://sun9-44.userapi.com/c855628/v855628038/13a937/ke9MuY3cBRI.jpg",
+  "title" : "Проектор10"
+}, {
+  "description" : "Описание проектора3",
+  "id" : 3,
+  "price" : 1199,
+  "quantity" : 15,
+  "thumbnail_url" : "https://sun9-64.userapi.com/c858532/v858532726/19f83/XZR_aCzsUC8.jpg",
+  "title" : "Проектор3"
+},{
+  "description" : "Описание проектора4",
+  "id" : 4,
+  "price" : 2399,
+  "quantity" : 10,
+  "thumbnail_url" : "https://sun9-44.userapi.com/c855628/v855628038/13a937/ke9MuY3cBRI.jpg",
+  "title" : "Проектор4"
+}, {
+  "description" : "Описание проектора5",
+  "id" : 5,
+  "price" : 1199,
+  "quantity" : 15,
+  "thumbnail_url" : "https://sun9-64.userapi.com/c858532/v858532726/19f83/XZR_aCzsUC8.jpg",
+  "title" : "Проектор5"
+},{
+  "description" : "Описание проектора6",
+  "id" : 6,
+  "price" : 2399,
+  "quantity" : 10,
+  "thumbnail_url" : "https://sun9-44.userapi.com/c855628/v855628038/13a937/ke9MuY3cBRI.jpg",
+  "title" : "Проектор6"
+}, {
+  "description" : "Описание проектора7",
+  "id" : 7,
+  "price" : 1199,
+  "quantity" : 15,
+  "thumbnail_url" : "https://sun9-64.userapi.com/c858532/v858532726/19f83/XZR_aCzsUC8.jpg",
+  "title" : "Проектор7"
+} ]

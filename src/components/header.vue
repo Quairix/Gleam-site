@@ -1,40 +1,88 @@
 <template>
-    <nav>
-        <ul>
-            <li><router-link to="/" exact>Главная страница</router-link></li>
-            <li><router-link to="/list" exact>Модели</router-link></li>
-            <li><router-link to="/add" exact>Добавить модель</router-link></li>
-        </ul>
-    </nav>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark" role="navigation">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <router-link to="/" class="navbar-brand mr-auto">Gleam проектор</router-link>
+    <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarTop"
+        aria-controls="navbarTop"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+        @click="toggleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTop" :class="{show: isNavOpen}">
+      <ul class="navbar-nav mr-auto">
+
+      </ul>
+      <ul class="nav navbar-nav">
+        <router-link to="/login" tag="li" v-if="!isLoggedIn" class="nav-item" active-class="active">
+          <a class="nav-link">Вход</a>
+        </router-link>
+        <li v-if="isLoggedIn" class="li-pointer nav-item">
+          <a @click="logout" class="nav-link">Выход {{ userEmail }}</a>
+        </li>
+        <router-link to="/register" tag="li" v-if="!isLoggedIn" class="nav-item" active-class="active">
+          <a class="nav-link">Регистрация</a>
+        </router-link>
+        <li>
+          <router-link to="/cart" class="btn btn-success navbar-btn" tag="button">
+            Корзина <span class="badge badge-light">{{ numItems }} (Руб {{ cartValue }})</span>
+          </router-link>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- /.container -->
+</nav>
 </template>
 
 <script>
-export default {}
+import {
+  mapActions, mapGetters
+} from 'vuex';
+export default {
+  data() {
+    return {
+      isNavOpen: false
+    }
+  },
+  computed: {
+    ...mapGetters(['isLoggedIn', 'cartValue', 'currentUser', 'cartItemList']),
+    numItems() {
+      return this.cartItemList.reduce((total, item) => {
+        total += item.quantity;
+        return total
+      }, 0);
+    },
+    userEmail() {
+      return this.isLoggedIn ? this.currentUser.email : ''
+    }
+  },
+  methods: {
+    ...mapActions(['logout']),
+    toggleNavbar() {
+      this.isNavOpen = !this.isNavOpen
+    }
+  }
+}
 </script>
 
-<style scoped>
-ul{
-    list-style-type: none;
-    text-align: center;
-    margin: 0;
+
+<style scoped lange="sass">
+.navbar-btn a {
+  color: white;
 }
-li{
-    display: inline-block;
-    margin: 0 10px;
+
+.li-pointer {
+  cursor: pointer;
 }
-a{
-    color: #fff;
-    text-decoration: none;
-    padding: 12px;
-    border-radius: 5px;
-}
-nav{
-    background: crimson;
-    padding: 30px 0;
-    margin-bottom: 40px;
-}
-.router-link-active{
-    background: rgba(255,255,255,0.8);
-    color: #444;
+
+.li-pointer:hover {
+  cursor: pointer;
 }
 </style>
