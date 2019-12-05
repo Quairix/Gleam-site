@@ -5,13 +5,13 @@
 ## Get Started
 
 ``` bash ```
-# установка зависимостей
+### установка зависимостей
 ``` npm install ```
 
-# запуск на localhost:8080
+### запуск на localhost:8080
 ``` npm run serve ```
 
-# сборка для production
+### сборка для production
 ``` npm run build ```
 
 Можно использовать данные в `data/` директории для импорта в `products` ветвь вашей firebase.
