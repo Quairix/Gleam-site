@@ -15,9 +15,7 @@
 
     <footer class="navbar-default navbar-bottom navbar-dark bg-dark">
       <div class="container-fluid">
-            <p class="text-center nav-bar mb-0">Gleam <a href="https://vk.com/gleamprojector" target="_blank">
-              https://vk.com/gleamprojector
-            </a></p>
+            <p class="text-center nav-bar mb-0">© 2020 Gleam <a href="https://vk.com/gleamprojector" target="_blank">https://vk.com/gleamprojector</a></p>
       </div>
     </footer>
 </div>
@@ -26,7 +24,7 @@
 
 <script>
   import { mapActions } from 'vuex';
-  import Header from './components/Header.vue';
+  import Header from './components/header.vue';
   import MessageComponent from './components/common/MessageComponent.vue';
   export default {
     components: {

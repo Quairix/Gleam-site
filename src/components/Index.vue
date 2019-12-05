@@ -1,16 +1,9 @@
 <template>
+
+  
 <div>
-  <h1>Вот сайт,</h1>
-  <h2>
-который построил Dev отдел.
-</h2>
-  <h3>А это описание,
-которое в других отделах хранится</h3>
-<p>В проекте,
-которым руководит Директор.</p>
-          <router-link tag='p' to="/store"  >
-          <a  class="nav-link">Магазин</a>
-          </router-link>
+  <img class="main__img" src="img/price.png" alt="">
+  <img class="main__img" src="img/images.png" alt="">
           
 </div>
 </template>

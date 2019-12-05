@@ -60,11 +60,11 @@ export default {
       itemList.map(item => {
         for (let prodIdx = 0; prodIdx < prodList.length; prodIdx++) {
           if (prodList[prodIdx].id == item.id) {
-            // if ((prodList[prodIdx].quantity < item.quantity)) {
-            //   message = `Только ${prodList[prodIdx].quantity} ${item.title} доступно в наличии`;
-            //   isValid = false;
-            //   return;
-            // }
+            if (prodList[prodIdx].quantity < item.quantity) {
+              message = `Только ${prodList[prodIdx].quantity} ${item.title} доступно в наличии`;
+              isValid = false;
+              return;
+            }
             break;
           }
         }
