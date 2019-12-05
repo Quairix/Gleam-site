@@ -10,7 +10,7 @@
       <p class="card-text truncate">{{ item.description | shortDescription}}</p>
 
       <div class="row">
-        <p class="col-6 lead">Руб {{ item.price }}</p>
+        <p class="col-6 lead">{{ item.price }} Руб</p>
         <p class="col-6">
           <button class="btn btn-success pull-right" :disabled="item.quantity === 0" @click="addItem">
             Добавить в корзину

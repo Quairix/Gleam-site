@@ -17,7 +17,7 @@
 
     <tfoot>
       <tr class="d-table-row d-sm-none">
-        <td class="text-center"><strong>Итог Руб {{ cartValue }}</strong></td>
+        <td class="text-center"><strong>Итог {{ cartValue }} Руб</strong></td>
       </tr>
       <tr>
         <td>
