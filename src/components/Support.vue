@@ -2,8 +2,8 @@
 
   
 <div>
-  <h1>Gleam</h1>
-  <p>Данный веб-сайт находится в процессе доработки</p>
+  <h1>Тех поддержка</h1>
+  <h3>Помощь...</h3>
   <img class="main__img" src="img/price.png" alt="">
   <img class="main__img" src="img/images.png" alt="">
           
