@@ -19,7 +19,6 @@
         <p> {{ item.description }} </p>
       </div>
       <div class="ratings">
-        <span>{{ item.quantity }} в наличии</span>
         <p class="pull-right">
           <button @click="addItem" :disabled="item.quantity === 0" class="btn btn-success">
                             Добавить в корзину
