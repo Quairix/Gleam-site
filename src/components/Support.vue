@@ -4,7 +4,7 @@
 <div>
   <h1>Тех поддержка</h1>
   <h3>Помощь...</h3>
-  <img class="main__img" src="img/price.png" alt="">
+  <img class="CENA" src="img/price.png" alt="">
   <img class="main__img" src="img/images.png" alt="">
           
 </div>
@@ -12,6 +12,10 @@
 
 
 <style>
+.CENA{
+  width: 200px;
+}
+
 .loadingItem {
   align-items: center;
   justify-content: center;
