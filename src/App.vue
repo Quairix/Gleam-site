@@ -13,10 +13,13 @@
       </div>
     </main>
 
-    <footer class="navbar-default navbar-bottom navbar-dark bg-dark">
-      <div class="container-fluid">
-            <p class="text-center nav-bar mb-0">© 2020 Gleam <a href="https://vk.com/gleamprojector" target="_blank">https://vk.com/gleamprojector</a></p>
-      </div>
+    <footer>
+      <ul class="social__list">
+        <li><a class="social__links social__links--vk" href="vk.com">Вконтакте</a></li>
+        <li><a class="social__links social__links--tw" href="twitter.com">Твиттер</a></li>
+        <li><a class="social__links social__links--inst" href="instagram.com">Инстаграм</a></li>
+      </ul>
+      <p class="footer__copyright">© 2020 Gleam <a class="footer__link" href="https://vk.com/gleamprojector" target="_blank">https://vk.com/gleamprojector</a></p>
     </footer>
 </div>
 
@@ -41,34 +44,3 @@
     }
   }
 </script>
-
-<style>
-  #reset-store-panel {
-    position: fixed; bottom: 0px; right: 0px;
-  }
-
-  body, .sticky-footer-wrapper {
-     min-height:100vh;
-  }
-
-  .flex-fill {
-     flex:1 1 auto;
-  }
-  footer {
-    height: 40px;
-    color: #666;
-    padding: 10px 0 10px 0;
-    font-size: 85%;
-  }
-  footer a {
-    color: #999;
-  }
-  footer a:hover {
-    color: #efefef;
-  }
-  @media (max-width: 576px) {
-    footer {
-      height: 50px;
-    }
-  }
-</style>

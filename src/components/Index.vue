@@ -1,11 +1,20 @@
-<template>
-
-  
+<template>  
 <div>
-  <h1>Gleam</h1>
-  <p>Данный веб-сайт находится в процессе доработки</p>
-  <img class="main__img" src="img/price.png" alt="">
-  <img class="main__img" src="img/images.png" alt="">
+  <img class="main__img" src="img/main.jpg" alt="Проектор">
+  <ul class="main__list">
+    <li class="main__card">
+      <img class="main__card-img" src="img/main.jpg" alt="">
+      <p class="main__card-text">Далеко-далеко за словесными горами в стране гласных и согласных живут, рыбные тексты. Продолжил рот реторический залетают запятой силуэт рекламных что рыбного океана?</p>
+    </li>
+    <li class="main__card">
+      <img class="main__card-img" src="img/main.jpg" alt="">
+      <p class="main__card-text">Далеко-далеко за словесными горами в стране гласных и согласных живут, рыбные тексты. Продолжил рот реторический залетают запятой силуэт рекламных что рыбного океана?</p>
+    </li>
+    <li class="main__card">
+      <img class="main__card-img" src="img/main.jpg" alt="">
+      <p class="main__card-text">Далеко-далеко за словесными горами в стране гласных и согласных живут, рыбные тексты. Продолжил рот реторический залетают запятой силуэт рекламных что рыбного океана?</p>
+    </li>
+  </ul>
           
 </div>
 </template>

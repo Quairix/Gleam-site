@@ -3,9 +3,9 @@
   <nav class="navbar navbar-expand-sm" role="navigation">
     <div class="container">
       <!-- Brand and toggle get grouped for better mobile display -->
-      <router-link to="/" class="navbar-brand mr-auto">Gleam</router-link>
+      <router-link to="/" class="header-top__logo">Gleam</router-link>
       <button
-          class="navbar-toggler"
+          class="header-top__toggler"
           type="button"
           data-toggle="collapse"
           data-target="#navbarTop"
@@ -13,35 +13,30 @@
           aria-expanded="false"
           aria-label="Toggle navigation"
           @click="toggleNavbar">
-        <span class="navbar-toggler-icon"></span>
+        <span class="header-top__toggler-icon"></span>
       </button>
 
-      <!-- <ul class="social__list">
-        <li><a class="social__links social__links--vk" href="vk.com">Вконтакте</a></li>
-        <li><a class="social__links social__links--tw" href="twitter.com">Твиттер</a></li>
-        <li><a class="social__links social__links--inst" href="instagram.com">Инстаграм</a></li>
-      </ul> -->
-
       <div class="collapse navbar-collapse" id="navbarTop" :class="{show: isNavOpen}">
-        <ul class="navbar-nav mr-auto">
-          <li class="navbar-nav__links"><router-link class="main-nav__link" to="/">Главная</router-link></li>
-          <li class="navbar-nav__links"><router-link class="main-nav__link" to="/store">Товары</router-link></li>
-          <li class="navbar-nav__links"><router-link class="main-nav__link" to="/about">О нас</router-link></li>
-          <li class="navbar-nav__links"><router-link class="main-nav__link" to="/support">Тех. поддержка</router-link></li>
+        <ul class="header-top__nav-list">
+          <li class="header-top__nav-item"><router-link class="header-top__nav__link" to="/">Главная</router-link></li>
+          <li class="header-top__nav-item"><router-link class="header-top__nav__link" to="/store">Товары</router-link></li>
+          <li class="header-top__nav-item"><router-link class="header-top__nav__link" to="/about">О нас</router-link></li>
+          <li class="header-top__nav-item"><router-link class="header-top__nav__link" to="/support">Тех. поддержка</router-link></li>
         </ul>
-        <ul class="nav navbar-nav">
+        <ul class="header-top__user-list">
           <router-link to="/login" tag="li" v-if="!isLoggedIn" class="nav-item" active-class="active">
-            <a class="nav-link">Вход</a>
+            <a class="header-top__user-link">Вход</a>
           </router-link>
-          <li v-if="isLoggedIn" class="li-pointer nav-item">
-            <a @click="logout" class="nav-link">Выход {{ userEmail }}</a>
+          <li v-if="isLoggedIn" class="header-top__user-logout">
+            <a @click="logout" href="#" class="header-top__user-link">Выход</a>
+            <span>{{ userEmail }}</span>
           </li>
           <router-link to="/register" tag="li" v-if="!isLoggedIn" class="nav-item" active-class="active">
-            <a class="nav-link">Регистрация</a>
+            <a class="header-top__user-link">Регистрация</a>
           </router-link>
-          <li>
-            <router-link to="/cart" class="btn btn-success navbar-btn" tag="button">
-              Корзина <span class="badge badge-light">{{ numItems }} (Руб {{ cartValue }})</span>
+          <li class="header-top__cart-wrapper">
+            <router-link to="/cart" class="header-top__cart" tag="button">
+              Корзина <span>{{ numItems }} (Руб {{ cartValue }})</span>
             </router-link>
           </li>
         </ul>
@@ -50,11 +45,11 @@
     <!-- /.container -->
   </nav>
   <div class="container">
-    <ul class="main-nav__list">
-      <li><router-link class="main-nav__link" to="/">Главная</router-link></li>
-      <li><router-link class="main-nav__link" to="/store">Товары</router-link></li>
-      <li><router-link class="main-nav__link" to="/about">О нас</router-link></li>
-      <li><router-link class="main-nav__link" to="/support">Тех. поддержка</router-link></li>
+    <ul class="header-bot__list">
+      <li><router-link class="header-bot__link" to="/">Главная</router-link></li>
+      <li><router-link class="header-bot__link" to="/store">Товары</router-link></li>
+      <li><router-link class="header-bot__link" to="/about">О нас</router-link></li>
+      <li><router-link class="header-bot__link" to="/support">Тех. поддержка</router-link></li>
     </ul>
   </div>
 </div>
@@ -90,18 +85,3 @@ export default {
   }
 }
 </script>
-
-
-<style scoped lange="sass">
-.navbar-btn a {
-  color: white;
-}
-
-.li-pointer {
-  cursor: pointer;
-}
-
-.li-pointer:hover {
-  cursor: pointer;
-}
-</style>

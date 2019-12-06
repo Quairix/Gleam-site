@@ -1,0 +1,38 @@
+.social__list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.social__links {
+  display: block;
+  width: 30px;
+  height: 30px;
+  font-size: 0;
+  margin: 20px 10px 0;
+
+  &--vk {
+    background-image: url("../img/vk.svg");
+  }
+
+  &--tw {
+    background-image: url("../img/twitter.svg");
+    width: 25px;
+    height: 25px;
+  }
+
+  &--inst {
+    background-image: url("../img/instagram.svg");
+    width: 23px;
+    height: 23px;
+  }
+}
+
+@media (min-width: 576px) {
+  .social__list {
+    display: flex;
+  }
+}

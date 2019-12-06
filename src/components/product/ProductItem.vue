@@ -1,25 +1,14 @@
 <template>
-<div class="mb-3 col-sm-6 col-md-4 item" :class="{'list-group-item': displayList}">
-  <div class="thumbnail card">
-    <div class="img-event intrinsic">
-      <img :src="item.thumbnail_url" alt="" class="grow thumbnail-image card-img-top intrinsic-item p-3">
-    </div>
-    <div class="card-body">
-      <router-link :to="'/product/' + item.id" tag="h5" class="card-title"><a>{{ item.title }}</a></router-link>
-
-      <p class="card-text truncate">{{ item.description | shortDescription}}</p>
-
-      <div class="row">
-        <p class="col-6 lead">Руб {{ item.price }}</p>
-        <p class="col-6">
-          <button class="btn btn-success pull-right" :disabled="item.quantity === 0" @click="addItem">
-            Добавить в корзину
-          </button>
-        </p>
+<div class="col-11 mx-auto col-sm-10 col-md-6 col-lg-4 products__item" :class="{'list-group-item': displayList}">
+      <img :src="item.thumbnail_url" alt="" class="products__img">
+      <div class="products__wrapper">
+        <router-link :to="'/product/' + item.id" tag="h5" class="products__title"><a>{{ item.title }}</a></router-link>
+        <p class="products__price">{{ item.price }}р</p>
       </div>
+
+      <p class="products__description">{{ item.description | shortDescription}}</p>
+      <button class="products__btn" :disabled="item.quantity === 0" @click="addItem">Добавить в корзину</button>
     </div>
-  </div>
-</div>
 </template>
 
 <script>
@@ -52,76 +41,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-div.card {
-  height: 100%;
-}
-
-.card-text {
-  font-size: 0.875rem;
-}
-
-.remain {
-  color: #d17581;
-}
-
-.grow {
-  transition: all .2s ease-in-out;
-}
-
-.grow:hover {
-  transform: scale(1.1);
-}
-
-.list-group-item {
-  float: none;
-  width: 100%;
-  background-color: #fff;
-  margin-bottom: 30px;
-  -ms-flex: 0 0 100%;
-  flex: 0 0 100%;
-  max-width: 100%;
-  padding: 0 1rem;
-  border: 0;
-  .thumbnail {
-    display: inline-block;
-    width: 100%;
-  }
-  .img-event {
-    width: 20%;
-    float: left;
-    padding: 0 !important;
-    margin: 0;
-    height: auto;
-  }
-
-  .thumbnail-image {
-    position: static;
-  }
-
-  .card-body {
-    float: left;
-    width: 80%;
-    margin: 0;
-  }
-
-  @media (max-width: 767.98px) {
-    .img-event {
-      width: 30%;
-      float: left;
-      padding: 0 !important;
-      margin: 0;
-    }
-
-    .card-body {
-      float: left;
-      width: 70%;
-      margin: 0;
-    }
-  }
-}
-
-
-
 
 .item.list-group-item:before, .item.list-group-item:after
 {

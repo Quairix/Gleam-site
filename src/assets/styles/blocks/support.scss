@@ -1,0 +1,102 @@
+.support__title {
+    margin-top: 20px;
+}
+
+.support__h2 {
+    margin-top: 50px;
+}
+
+.support__markets {
+    width: 200px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.support__form label{
+    display: block;
+    margin-top: 20px;
+}
+
+.support__input {
+    width: 100%;
+    display: block;
+    border: 1px solid #eee;
+    padding: 10px 20px;
+}
+
+.support__submit {
+    width: 100%;
+    padding: 10px 30px;
+    background-color: $blue;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.support__contacts {
+    margin-top: 50px;
+    position: relative;
+}
+
+.support__mark {
+    background-color: $blue;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.support__mark a {
+    display: block;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+@media (min-width: 576px) {
+    .support__markets {
+        display: inline-block;
+        margin-right: 30px;
+    }
+}
+
+@media (min-width: 768px) {
+    .support__mark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 300px;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: left;
+        padding: 0 20px;
+    }
+}
+
+@media (min-width: 992px) {
+    .support__form textarea{
+        height: 226px;
+    }
+
+    .support__textarea {
+        flex-basis: 55%;
+    }
+
+    .support__flex {
+        display: flex;
+    }
+    
+    .support__wrapper {
+        flex: 0 1 45%;
+        margin-right: 30px;
+    }
+
+    
+    .support__mark {
+        left: 150px;
+    }
+}

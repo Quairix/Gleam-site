@@ -3,7 +3,7 @@
   <div class="row text-center" v-if="isProductLoading">
     <grid-loader :loading="isProductLoading" :color="loaderColor" :size="loaderSize"></grid-loader>
   </div>
-  <div v-else class="row action-panel">
+  <!-- <div v-else class="row action-panel">
     <div class="col-12">
       <div class="btn-group btn-group-sm pull-right">
 				<button id="list" class="btn btn-outline-dark" @click.prevent="changeDisplay(true)">
@@ -14,7 +14,7 @@
 				</button>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <div class="row" v-if="!isProductLoading">
     <app-product-item v-for="prod in products" :item="prod" :key="prod.id" :displayList="displayList"></app-product-item>
