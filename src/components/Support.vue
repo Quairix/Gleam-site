@@ -42,6 +42,10 @@
 </template>
 
 <style>
+.CENA{
+  width: 200px;
+}
+
 .loadingItem {
   align-items: center;
   justify-content: center;
