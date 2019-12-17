@@ -1,6 +1,6 @@
 <template>
 <div class="container table-responsive">
-  <table id="cart" class="table table-hover table-sm">
+  <table id="cart" class="table table-hover table-sm cart__table">
     <thead>
       <tr>
         <th style="width:50%">Продукт</th>
@@ -15,26 +15,17 @@
       <app-cart-item v-for="cartItem in cartItemList" :cartItem="cartItem" :key="cartItem.id"></app-cart-item>
     </transition-group>
 
-    <tfoot>
-      <tr class="d-table-row d-sm-none">
-        <td class="text-center"><strong>Итог {{ cartValue }} Руб</strong></td>
-      </tr>
-      <tr>
-        <td>
-          <button class="btn btn-warning" @click="saveShoppingCartLocal">
-							<i class="fa fa-angle-left"></i> Сохранить и продолжить покупку
-						</button>
-        </td>
-        <td colspan="2" class="d-none d-sm-table-cell"></td>
-        <td class="d-none d-sm-table-cell text-center"><strong>Всего Руб {{ cartValue }}</strong></td>
-        <td class="px-0">
-          <button class="btn btn-success" @click="checkout">
-							<span class="text-nowrap">Оформить <i class="fa fa-angle-right d-inline"></i></span>
-					</button>
-        </td>
-      </tr>
-    </tfoot>
   </table>
+  <div class="cart__result-wrapper">
+    <button class="btn btn-warning" @click="saveShoppingCartLocal">
+      <i class="fa fa-angle-left"></i> Сохранить и продолжить покупку
+    </button>
+    <strong class="cart__result">Всего {{ cartValue }}р</strong>
+    
+    <button class="cart__checkout" @click="checkout">
+        <span class="text-nowrap">Оформить <i class="fa fa-angle-right d-inline"></i></span>
+    </button>
+  </div>
 </div>
 </template>
 

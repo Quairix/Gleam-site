@@ -14,7 +14,7 @@
       </div>
 
       <div class="caption-full">
-        <h4 class="pull-right">{{ item.price }} Руб</h4>
+        <h4 class="pull-right">{{ item.price }}р</h4>
         <h4> {{ item.title }}</h4>
         <p> {{ item.description }} </p>
       </div>

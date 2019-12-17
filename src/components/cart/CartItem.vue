@@ -1,5 +1,5 @@
 <template>
-	<tr>
+	<tr class="cart__items-row">
 		<td data-th="Product">
 			<div class="row">
 				<div class="col-sm-2 d-none d-sm-block">
@@ -18,7 +18,7 @@
 				@input="updateQuantity"
 				min="0">
 		</td>
-		<td data-th="Subtotal" class="text-center">Руб {{ subtotal }}</td>
+		<td data-th="Subtotal" class="text-center">{{ subtotal }}р</td>
 		<td class="actions" data-th="">
 			<button class="btn btn-danger btn-sm" @click="removeItem"><i class="fa fa-trash-o"></i></button>
 		</td>

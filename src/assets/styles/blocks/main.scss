@@ -10,24 +10,98 @@
     justify-content: space-between;
     margin: 0;
     padding: 0;
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 .main__card {
-    margin-top: 20px;
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 10px;
 }
 
 .main__card-img {
-    max-width: 100%;
+    width: 50%;
 }
 
 .main__card-text {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.main__info-img {
+    width: 100%;
     margin-top: 20px;
 }
 
+.main__info-text {
+    text-align: center;
+    margin-top: 20px;
+}
 
 @media (min-width: 768px) {
-    .main__card {
-      width: 30%;
+
+    .main__info-img {
+        display: block;
+        width: 500px;
+        margin: 0 auto;
+        margin-top: 20px;
     }
-  }
+
+    .main__card {
+        width: 50%;
+        margin-bottom: 50px;
+        margin-top: 0;
+    }
+
+    .main__card-img {
+        width: 50%;
+    }
+
+    .main__card-img--logistic {
+        width: 65%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .main__info {
+        display: flex;
+        align-items: center;
+        flex-grow: 1;
+        flex-shrink: 0;
+    }
+    .main__info-img {
+        display: block;
+        width: 450px;
+        margin: 0;
+        margin-top: 20px;
+    }
+    .main__info-text {
+        text-align: left;
+        padding: 0 30px;
+        font-size: 20px;
+    }
+
+    .main__card {
+        width: 25%;
+        margin-bottom: 0;
+    }
+}
+
+@media (min-width: 1200px) {
+    .main__info {
+        margin-top: 50px;
+    }
+    
+    .main__info-img {
+        flex-shrink: 0;
+        width: 550px;
+    }
+
+    .main__list {
+        margin: 100px 0;
+    }
+}
