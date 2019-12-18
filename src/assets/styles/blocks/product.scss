@@ -6,10 +6,18 @@
     width: 100%;
 }
 
+.product__price {
+    font-weight: bold;
+}
+
+.product__description {
+    color: #888;
+}
+
 .product__btn {
     background-color: $blue;
     border: none;
-    padding: 20px 30px;
+    padding: 15px 30px;
     color: #ffffff;
     font-weight: bold;
     width: 100%;

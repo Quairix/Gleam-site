@@ -1,6 +1,9 @@
 <template>  
 <div>
-  <img class="main__img" src="img/main.jpg" alt="Проектор">
+  <div class="main__intro">
+    <img class="main__img" src="img/main.jpg" alt="Проектор">
+    <p class="main__tagline">Gleam - это то, чего вам не хватало</p>
+  </div>
   <div class="main__info">
     <img class="main__info-img" src="img/info.svg" alt="лучшие в мире">
     <p class="main__info-text">Самое высокое качество изображения на любой поверхности в любое время суток. Удобное управление прямо из вашего смартфона. Смотрите самый качественный контент с самым качественным проектором.</p>
@@ -26,7 +29,6 @@
           
 </div>
 </template>
-
 
 <style>
 .CENA{
