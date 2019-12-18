@@ -146,7 +146,8 @@
         <img src="img/personals/personal-24.jpg" alt="" class="about__personal-img">
         <h3 class="about__personal-name">Коршунов Артем</h3>
         <p class="about__personal-position">Отдел тестирования</p>
-        <p class="about__personal-description">Далеко-далеко, за словесными горами в стране гласных и согласных живут рыбные тексты. Всеми переулка коварных языкового вопроса скатился власти там собрал страну.</p>
+        <p class="about__personal-description">Внимательно посмотрите на этого человека.
+по его взгляду и костюму понятно, кто на самом деле должен быть босс этой компании, но к сожалению им не является.</p>
       </div>
     </div>
   </div>
