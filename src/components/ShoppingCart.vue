@@ -14,13 +14,13 @@
     <transition-group name="list-shopping-cart" tag="tbody">
       <app-cart-item v-for="cartItem in cartItemList" :cartItem="cartItem" :key="cartItem.id"></app-cart-item>
     </transition-group>
-
   </table>
+
   <div class="cart__result-wrapper">
-    <button class="btn btn-warning" @click="saveShoppingCartLocal">
-      <i class="fa fa-angle-left"></i> Сохранить и продолжить покупку
-    </button>
     <strong class="cart__result">Всего {{ cartValue }}р</strong>
+    <button class="cart__save" @click="saveShoppingCartLocal">
+      <i class="fa fa-angle-left"></i> продолжить покупки
+    </button>
     
     <button class="cart__checkout" @click="checkout">
         <span class="text-nowrap">Оформить <i class="fa fa-angle-right d-inline"></i></span>
