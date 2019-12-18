@@ -1,34 +1,18 @@
 <template>
-<div class="container">
-  <div class="col-md-12">
+  <div class="container">
     <div v-if="isProductLoading" class="text-center">
       <grid-loader :loading="isProductLoading" :color="loaderColor" :size="loaderSize" class="d-inline-block" />
     </div>
-    <div v-else class="card">
-      <div class="row">
-        <div class="col-12 col-md-4 offset-md-4">
-          <div class="intrinsic">
-            <img class="img-fluid intrinsic-item" :src="item.thumbnail_url" alt="">
-          </div>
-        </div>
-      </div>
-
-      <div class="caption-full">
-        <h4 class="pull-right">{{ item.price }}р</h4>
-        <h4> {{ item.title }}</h4>
-        <p> {{ item.description }} </p>
-      </div>
-      <div class="ratings">
-        <p class="pull-right">
-          <button @click="addItem" :disabled="item.quantity === 0" class="btn btn-success">
-                            Добавить в корзину
-                        </button>
-        </p>
-        <div class="clearfix"></div>
+    <div v-else class="product">
+      <img class="product__img" :src="item.thumbnail_url" alt="Лучший в мире проектор">
+      <div class="product__wrapper">
+        <h2 class="product__title">{{ item.title }}</h2>
+        <h3 class="product__price">{{ item.price }}р</h3>
+        <p class="product__description">{{ item.description }}</p>
+        <button @click="addItem" :disabled="item.quantity === 0" class="product__btn">Добавить в корзину</button>
       </div>
     </div>
   </div>
-</div>
 </template>
 
 <script>

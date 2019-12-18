@@ -1,0 +1,33 @@
+.product__wrapper {
+    padding: 20px 0;
+}
+
+.product__img {
+    width: 100%;
+}
+
+.product__btn {
+    background-color: $blue;
+    border: none;
+    padding: 20px 30px;
+    color: #ffffff;
+    font-weight: bold;
+    width: 100%;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+@media (min-width: 991px) {
+    .product {
+        display: flex;
+    }
+
+    .product__wrapper {
+        padding: 0 30px;
+    }
+
+    .product__img {
+        width: 500px;
+    }
+}
