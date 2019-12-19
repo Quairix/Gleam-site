@@ -7,6 +7,7 @@
       </div>
 
       <p class="products__description">{{ item.description | shortDescription}}</p>
+      <p class="products__type">{{ item.type | getTypeString}}</p>
       <button class="products__btn" :disabled="item.quantity === 0" @click="addItem">Добавить в корзину</button>
     </div>
 </template>
@@ -34,6 +35,15 @@ export default {
         return value.substring(0, 100) + '...';
       } else {
         return value;
+      }
+    },
+    getTypeString(value) {
+      if (value == "proector") {
+        return 'Проектор';
+      } else {
+        if (value == "merch") {
+        return 'Мерч';
+        } else return '';
       }
     }
   }

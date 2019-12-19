@@ -63,3 +63,11 @@ export function saveToTransaction(_, {uid, cartItemList}) {
 	newTransaction['/transactions/' + uid + '/' + newTransactionKey] = cartItemList;
 	return ref.update(newTransaction);
 }
+
+
+export function saveToProducts(_, {ProductItem}) {
+	let newProductKey = ref.child("products").push().key;
+	var newProduct = {}
+	newProduct['/products/' + newProductKey] = ProductItem;
+	return ref.update(newProduct);
+}
