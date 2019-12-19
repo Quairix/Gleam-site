@@ -1,18 +1,20 @@
 <template>  
 <div>
           <div id="dashboard">
-  <p>Добавить товар</p>
         <section>
             <div class="col1">
                 <div class="profile">
-                    <h5>{{ ProductItem.name }}</h5>
-                    <p>{{ ProductItem.title }}</p>
                     <div class="create-post">
-                        <p>create a post</p>
+                      <p>Добавить товар</p>
                         <form @submit.prevent>
-                            <textarea></textarea>
-                            <button class="button">post</button>
-                        </form>
+                          <p>Описание: <input v.model.trim="ProductItem.description"/></p>
+                          <p>Id: <input v.model.trim="ProductItem.id"/></p>
+                         <p>URL изображения: <input v.model.trim="ProductItem.thumbnail_url"/></p>
+                         <p>Название: <input v.model.trim="ProductItem.title"/></p>
+                         <p>Тип: <input v.model.trim="ProductItem.type"/></p>
+                          <p> <button class="button" @click="saveToProducts" >Добавить</button></p>
+                       
+                         </form>
                     </div>
                 </div>
             </div>
@@ -37,16 +39,11 @@ export default {
     this.saveToProducts({
             ProductItem: this.ProductItem
           }).then(() => {
+            this.console.log();
             this.addMessage({
               messageClass: 'success',
               message: 'Ваш товар был добавлен!'
             });
-            this.saveShoppingCart({
-              cartItemList: [],
-              uid: this.currentUser.uid
-            });
-            this.clearCart();
-            this.$router.push('/');
           });
     }
   },

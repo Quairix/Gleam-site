@@ -1,6 +1,6 @@
 <template>
 <div class="col-11 mx-auto col-sm-10 col-md-6 col-lg-4 products__item" :class="{'list-group-item': displayList}">
-      <img :src="item.thumbnail_url" alt="" class="products__img">
+      <router-link :to="'/product/' + item.id"><img :src="item.thumbnail_url" alt="" class="products__img"></router-link>
       <div class="products__wrapper">
         <router-link :to="'/product/' + item.id" tag="h5" class="products__title"><a>{{ item.title }}</a></router-link>
         <p class="products__price">{{ item.price }}р</p>
