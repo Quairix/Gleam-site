@@ -6,7 +6,7 @@ const config = {
   databaseURL: "https://gleam-1cb98.firebaseio.com/"
 }
 
-firebase.initializeApp(config);
+let app = firebase.initializeApp(config);
 
 export function firebaseListener(func) {
   firebase.auth().onAuthStateChanged(function(user) {
@@ -24,3 +24,4 @@ export function firebaseListener(func) {
 
 export const ref = firebase.database().ref();
 export const firebaseAuth = firebase.auth;
+export const productsRef = app.database().ref('products');

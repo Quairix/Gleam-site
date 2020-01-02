@@ -30,6 +30,7 @@
   import Header from './components/header.vue';
   import MessageComponent from './components/common/MessageComponent.vue';
   export default {
+    
     components: {
       appHeader: Header,
       MessageComponent

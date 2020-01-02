@@ -28,8 +28,8 @@
             <a class="header-top__user-link">Вход</a>
           </router-link>
           <li v-if="isLoggedIn" class="header-top__user-logout">
-            <a @click="logout" href="#" class="header-top__user-link">Выход</a>
             <span>{{ userEmail }}</span>
+            <a @click="logout" href="#" class="header-top__user-link">Выход</a>
           </li>
           <router-link to="/register" tag="li" v-if="!isLoggedIn" class="nav-item" active-class="active">
             <a class="header-top__user-link">Регистрация</a>
@@ -50,6 +50,7 @@
       <li><router-link class="header-bot__link" to="/store">Товары</router-link></li>
       <li><router-link class="header-bot__link" to="/about">О нас</router-link></li>
       <li><router-link class="header-bot__link" to="/support">Тех. поддержка</router-link></li>
+      <li v-if="isAdmin"><router-link class="header-bot__link" to="/add">Добавить товар</router-link></li>
     </ul>
   </div>
 </div>
@@ -75,6 +76,10 @@ export default {
     },
     userEmail() {
       return this.isLoggedIn ? this.currentUser.email : ''
+    },
+    isAdmin(){
+      console.log(this.userEmail == "user@mail.com");
+      return this.userEmail == "user@mail.com"
     }
   },
   methods: {
