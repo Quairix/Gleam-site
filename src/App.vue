@@ -28,7 +28,8 @@
 <script>
   import { mapActions } from 'vuex';
   import Header from './components/header.vue';
-  import MessageComponent from './components/common/MessageComponent.vue';
+  import MessageComponent from './components/common/MessageComponent.vue';  
+
   export default {
     
     components: {

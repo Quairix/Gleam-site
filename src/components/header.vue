@@ -50,7 +50,7 @@
       <li><router-link class="header-bot__link" to="/store">Товары</router-link></li>
       <li><router-link class="header-bot__link" to="/about">О нас</router-link></li>
       <li><router-link class="header-bot__link" to="/support">Тех. поддержка</router-link></li>
-      <li v-if="isAdmin"><router-link class="header-bot__link" to="/add">Добавить товар</router-link></li>
+      <li v-if="isAdmin"><router-link class="header-bot__link" to="/add">Управление</router-link></li>
     </ul>
   </div>
 </div>
@@ -78,7 +78,6 @@ export default {
       return this.isLoggedIn ? this.currentUser.email : ''
     },
     isAdmin(){
-      console.log(this.userEmail == "user@mail.com");
       return this.userEmail == "user@mail.com"
     }
   },

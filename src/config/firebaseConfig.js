@@ -25,3 +25,4 @@ export function firebaseListener(func) {
 export const ref = firebase.database().ref();
 export const firebaseAuth = firebase.auth;
 export const productsRef = app.database().ref('products');
+export const transactionsRef = app.database().ref('transactions');
