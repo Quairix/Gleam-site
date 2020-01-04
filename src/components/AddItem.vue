@@ -1,8 +1,8 @@
 <template >
-  <div> 
+  <div>
     <div id="dashboard" v-if="isAdmin">
       <section>
-        <div class="panel panel-default" >
+        <div class="panel panel-default">
           <div class="panel-heading">
             <h3 class="panel-title">Добавить товар</h3>
           </div>
@@ -44,25 +44,29 @@
       <hr />
       <hr />
       <div>
-        
-  <button type="button" v-on:click="onexport">Excel download</button>
-        <h2>Transactions</h2>
+        <h2>Заказы</h2>
         <div v-if="trUsers.length">
+          <export-excel
+          style="color:white;" 
+            class="btn btn-primary"
+            :data="excelData"
+            :fields="json_fields"
+            worksheet="My Worksheet"
+            name="filename.xls"
+          >Выгрузить в Excel</export-excel>
           <div v-for="u in trUsers" :item="u" :key="u.id">
-            <h4>User: {{ u.id }}</h4>
+            <div class="t1">Пользователь: "{{ u.id }}"
             <div v-for="o in u.orders.orders" :item="o" :key="o.id">
-              <p>
-                <b>Order: {{ o.id }}</b>
-              </p>
+                <div class="t2">Заказ: "{{ o.id }}"
               <div v-for="i in o.items.items" :item="i" :key="i.id">
-                <p>Item: id {{ i.id }} - price {{ i.price}}</p>
-              </div>
+                <div class="t3">Товар: id {{ i.id }} - цена {{ i.price}} - количество {{i.quantity}}</div>
+              </div></div>
               <hr />
             </div>
-          </div>
+          </div></div>
         </div>
         <div v-else>
-          <p>No orders</p>
+          <p>Нет заказов</p>
         </div>
       </div>
     </div>
@@ -72,10 +76,16 @@
 import { mapActions, mapGetters } from "vuex";
 import { productsRef, transactionsRef } from "../config/firebaseConfig";
 
-import XLSX from 'xlsx'
 export default {
   data() {
     return {
+      json_fields: {
+        User: "user",
+        Order: "order",
+        ItemId: "itemId",
+        ItemCount: "itemCount",
+        ItemPrice: "itemPrice"
+      },
       trUsers: [],
       newProduct: {
         title: "Title",
@@ -85,7 +95,7 @@ export default {
         thumbnail_url:
           "https://sun9-23.userapi.com/c204628/v204628644/283e/ItIPEowth6U.jpg",
         type: "proector"
-      },
+      }
     };
   },
 
@@ -97,6 +107,25 @@ export default {
     },
     isAdmin() {
       return this.userEmail == "user@mail.com";
+    },
+    excelData() {
+      let dataArray = [];
+
+      this.trUsers.forEach(u => {
+        u.orders.orders.forEach(o => {
+          o.items.items.forEach(i => {
+            dataArray.push({
+              user: u.id,
+              order: o.id,
+              itemId: i.id,
+              itemCount: i.quantity,
+              itemPrice: i.price
+            });
+          });
+        });
+      });
+      //console.log(dataArray);
+      return dataArray;
     }
   },
   methods: {
@@ -108,22 +137,6 @@ export default {
         messageClass: "success",
         message: "Ваш товар был добавлен!"
       });
-    },
-      onexport () { // On Click Excel download button
-    
-      // export json to Worksheet of Excel
-      // only array possible
-      var trWS = XLSX.utils.json_to_sheet(this.trUsers) 
-
-      // A workbook is the name given to an Excel file
-      var wb = XLSX.utils.book_new() // make Workbook of Excel
-
-      // add Worksheet to Workbook
-      // Workbook contains one or more worksheets
-      XLSX.utils.book_append_sheet(wb, trWS, 'tr')  
-
-      // export Excel file
-      XLSX.writeFile(wb, 'book.xlsx') // name of the file is 'book.xlsx'
     }
   },
 
@@ -147,7 +160,7 @@ export default {
         users.push({ id: childSnapshot.key, orders: { orders } });
       });
     });
-    console.log(users);
+    //console.log(users);
     this.trUsers = users;
     return users;
   }
@@ -163,5 +176,24 @@ export default {
 .action-panel {
   margin-bottom: 10px;
   margin-right: 5px;
+}
+
+.t1{
+  font-size: 20px;
+  font-weight: bold;
+  border-left: 1px solid black;
+  padding-left: 10px;
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+.t2{
+  margin-left: 5px;
+font-size: 20px;
+font-weight: initial;
+}
+.t3{
+  margin-left: 5px;
+  font-size: 12px;
 }
 </style>
