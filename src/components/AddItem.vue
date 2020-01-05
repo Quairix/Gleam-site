@@ -51,8 +51,8 @@
             class="btn btn-primary"
             :data="excelData"
             :fields="json_fields"
-            worksheet="My Worksheet"
-            name="filename.xls"
+            worksheet="Data"
+            name="Export.xls"
           >Выгрузить в Excel</export-excel>
           <div v-for="u in trUsers" :item="u" :key="u.id">
             <div class="t1">Пользователь: "{{ u.id }}"

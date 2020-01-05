@@ -7,7 +7,7 @@
       <img class="product__img" :src="item.thumbnail_url" alt="Лучший в мире проектор">
       <div class="product__wrapper">
         <h2 class="product__title">{{ item.title }}</h2>
-        <h3 class="product__price">{{ item.price }}р</h3>
+        <h3 class="product__price">{{ item.price }} р</h3>
         <p class="product__description">{{ item.description }}</p>
         <button @click="addItem" :disabled="item.quantity === 0" class="product__btn">Добавить в корзину</button>
       </div>
@@ -36,13 +36,8 @@ export default {
     ...mapGetters(['isProductLoading', 'products']),
     item() {
       let id = this.$route.params.id;
-      if (this.products.length >= id) {
-        let filterArr = this.products.filter((item) => {
-          return item.id == id
-        });
-        if (filterArr.length > 0) {
-          return filterArr[0];
-        }
+      if (Object.keys(this.products).length >= id) {
+        return this.products[id];
       }
       return {};
     }
