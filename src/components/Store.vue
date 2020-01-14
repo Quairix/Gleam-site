@@ -1,6 +1,6 @@
 <template>
   <div>
-  <!--   <hooper :autoPlay="false" :itemsToShow="3" >
+    <hooper :autoPlay="false" :itemsToShow="3" >
       <slide
       v-for="prod in products"
       :item="prod"
@@ -10,7 +10,7 @@
       :item="prod"
       ></app-product-item></slide>
       <hooper-navigation slot="hooper-addons"></hooper-navigation>
-    </hooper> -->
+    </hooper>
     <div class="container" :class="{loadingItem: isProductLoading}">
       <div class="row text-center" v-if="isProductLoading">
         <grid-loader :loading="isProductLoading" :color="loaderColor" :size="loaderSize"></grid-loader>
@@ -27,7 +27,7 @@
 import { mapGetters } from 'vuex'
 import ProductItem from './product/ProductItem.vue';
 import GridLoader from 'vue-spinner/src/GridLoader.vue';
-/*import { Hooper, Slide, Navigation as HooperNavigation } from 'hooper';*/
+import { Hooper, Slide, Navigation as HooperNavigation } from 'hooper';
 
 export default {
   data() {
@@ -43,10 +43,10 @@ export default {
   },
   components: {
     appProductItem: ProductItem,
-    GridLoader/*,
+    GridLoader,
     Hooper,
     Slide,
-    HooperNavigation*/
+    HooperNavigation
   }
 }
 </script>
