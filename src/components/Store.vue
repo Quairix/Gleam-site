@@ -1,45 +1,38 @@
 <template>
   <div>
-    <hooper :autoPlay="false" :itemsToShow="3" >
-      <slide
-      v-for="prod in products"
-      :item="prod"
-      :key="prod.id"
-      :displayList="displayList">
-      <app-product-item
-      :item="prod"
-      ></app-product-item></slide>
-      <hooper-navigation slot="hooper-addons"></hooper-navigation>
-    </hooper>
     <div class="container" :class="{loadingItem: isProductLoading}">
       <div class="row text-center" v-if="isProductLoading">
         <grid-loader :loading="isProductLoading" :color="loaderColor" :size="loaderSize"></grid-loader>
       </div>
 
       <div class="row" v-if="!isProductLoading">
-        <app-product-item v-for="prod in products" :item="prod" :key="prod.id" :displayList="displayList"></app-product-item>
+        <hooper :autoPlay="false" :itemsToShow="2">
+          <slide v-for="prod in products" :item="prod" :key="prod.id" :displayList="displayList">
+            <app-product-item :item="prod"></app-product-item>
+          </slide>
+          <hooper-navigation slot="hooper-addons"></hooper-navigation>
+        </hooper>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import ProductItem from './product/ProductItem.vue';
-import GridLoader from 'vue-spinner/src/GridLoader.vue';
-import { Hooper, Slide, Navigation as HooperNavigation } from 'hooper';
+import { mapGetters } from "vuex";
+import ProductItem from "./product/ProductItem.vue";
+import GridLoader from "vue-spinner/src/GridLoader.vue";
+import { Hooper, Slide, Navigation as HooperNavigation } from "hooper";
 
 export default {
   data() {
     return {
       loaderColor: "#5cb85c",
       loaderSize: "50px",
-      displayList: false,
-      
-    }
+      displayList: false
+    };
   },
   computed: {
-    ...mapGetters(['products', 'isProductLoading']),
+    ...mapGetters(["products", "isProductLoading"])
   },
   components: {
     appProductItem: ProductItem,
@@ -48,7 +41,7 @@ export default {
     Slide,
     HooperNavigation
   }
-}
+};
 </script>
 
 <style>
