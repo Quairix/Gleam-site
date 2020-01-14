@@ -4,7 +4,7 @@
       <grid-loader :loading="isProductLoading" :color="loaderColor" :size="loaderSize" class="d-inline-block" />
     </div>
     <div v-else class="product">
-      <img class="product__img" :src="item.thumbnail_url" alt="Лучший в мире проектор">
+      <img class="product__img" :src="item.thumbnail_url">
       <div class="product__wrapper">
         <h2 class="product__title">{{ item.title }}</h2>
         <h3 class="product__price">{{ item.price }} р</h3>

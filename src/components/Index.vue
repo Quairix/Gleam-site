@@ -1,14 +1,14 @@
 <template>  
 <div>
   <div class="main__intro">
-    <img class="main__img" src="img/main.jpg" alt="Проектор">
-    <p class="main__tagline">Gleam - это то, чего вам не хватало</p>
+    <p class="main__info-text">Самое высокое качество изображения на любой поверхности в любое время суток. 
+      Удобное управление прямо из вашего смартфона. Смотрите самый качественный контент с самым качественным проектором.</p>
+    <img class="main__img" src="https://www.networkmedia.com.hk/images/Product/Apcon/14078_Diagram_IntellaStore_II_Applications.png" alt="Проектор">
   </div>
   <div class="main__info">
-    <img class="main__info-img" src="img/info.svg" alt="лучшие в мире">
+    <img class="main__info-img" src="https://tools.ru/catalog_files/category_10968/images/nG1-Grid.png">
     <p class="main__info-text">Самое высокое качество изображения на любой поверхности в любое время суток. 
-      Удобное управление прямо из вашего смартфона. Смотрите самый качественный контент с самым качественным проектором.
-      <a href='http://kafitis.intbel.ru:5001/'>Ознакомиться с продуктом</a></p>
+      Удобное управление прямо из вашего смартфона. Смотрите самый качественный контент с самым качественным проектором.</p>
   </div>
   <ul class="main__list">
     <li class="main__card">

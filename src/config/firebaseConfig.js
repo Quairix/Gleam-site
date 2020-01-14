@@ -1,9 +1,9 @@
 import firebase from 'firebase'
 
 const config = {
-  apiKey: "AIzaSyATYfrY3KkP3VADsfeSqXYXZvYfP5AAUp4",
-  authDomain: "gleam-1cb98.firebaseio.com",
-  databaseURL: "https://gleam-1cb98.firebaseio.com/"
+  apiKey: "AIzaSyAHUkGvN3TG5k2fr2qQdeu2F2A-icf5lFU",
+  authDomain: "anmonet-a11e2.firebaseio.com",
+  databaseURL: "https://anmonet-a11e2.firebaseio.com/"
 }
 
 let app = firebase.initializeApp(config);
@@ -26,3 +26,5 @@ export const ref = firebase.database().ref();
 export const firebaseAuth = firebase.auth;
 export const productsRef = app.database().ref('products');
 export const transactionsRef = app.database().ref('transactions');
+export const feedbackRef = app.database().ref('feedback');
+export const modernizationRef = app.database().ref('modernization');

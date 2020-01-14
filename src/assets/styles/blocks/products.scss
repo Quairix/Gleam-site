@@ -1,4 +1,4 @@
-$blue: #4ad8fe;
+$grey: #626262;
 
 .products__item {
     margin-bottom: 100px;
@@ -23,7 +23,10 @@ $blue: #4ad8fe;
 }
 
 .products__title a {
-    color: #222;
+    color: #ff5c36;
+    &:hover {
+        color: $grey;
+    }
 }
 
 .products__price {
@@ -33,19 +36,25 @@ $blue: #4ad8fe;
 }
 
 .products__description {
-    color: #888;
+    color: $grey;
 }
 
 .products__btn {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid $blue;
-    background-color: transparent;
-    color: $blue;
-    font-weight: bold;
-    margin-top: 20px;
+     background-color: #ff5c36;
+  border: none;
+  padding: 20px 20px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 10px;
+  color: #ffffff;
+  font-size: 16px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+  border-radius: 50px;
     &:hover {
-        background-color: $blue;
+        background-color: $grey;
         color: #fff;
     }
 }

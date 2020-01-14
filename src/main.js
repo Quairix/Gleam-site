@@ -6,11 +6,10 @@ import store from './stores/store';
 import { firebaseListener } from './config/firebaseConfig';
 import './assets/styles/app.scss'
 
+
 import App from './App.vue';
-import excel from 'vue-excel-export';
 Vue.use(VueRouter);
  
-Vue.use(excel);
 
 firebaseListener(authStatusChange);
 

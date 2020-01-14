@@ -2,79 +2,38 @@
   <div>
     <div id="dashboard" v-if="isAdmin">
       <section>
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">Добавить товар</h3>
+        <div class="row"> 
+            <div class="main-form col-lg-4 col-md-6 col-sm-8 offset-sm-1 ol-10">
+              <p class="main-form-header"><span>Д</span>обавить версию</p>
+              <form>
+                <input ref="title" class="form-control" v-model.trim="newProduct.title" type="text" placeholder="Название">
+                 <textarea class="form-control" v-model="newProduct.description" type="text" Required placeholder="Описание"></textarea>
+                 <label for="productPrice">Цена ($):</label>
+                  <input class="form-control" v-model="newProduct.price" type="number" placeholder="Цена">
+                  <label for="productId">Id:</label>
+                 <input id="ProductId" class="form-control" v-model="newProduct.id" type="text" placeholder="Id"/>
+                 <label for="productURL">URL изображения:</label>
+                 <input class="form-control" v-model="newProduct.thumbnail_url" type="text" placeholder="URL изображения"/>
+                 <button class="main-form-btn" @click="addProduct" >Добавить</button>
+              </form>
           </div>
-          <form form id="form" @submit.prevent>
-            <div class="form-group">
-              <label for="productTitle">Название:</label>
-              <input ref="title" class="form-control" v-model.trim="newProduct.title" type="text" />
-            </div>
-            <div class="form-group">
-              <label for="productDescription">Описание:</label>
-              <textarea class="form-control" v-model="newProduct.description" type="text"></textarea>
-            </div>
-            <div class="form-group">
-              <label for="productPrice">Цена:</label>
-              <input class="form-control" v-model="newProduct.price" type="number" />
-            </div>
-            <div class="form-group">
-              <label for="productId">Id:</label>
-              <input id="ProductId" class="form-control" v-model="newProduct.id" type="text" />
-            </div>
-            <div class="form-group">
-              <label for="productURL">URL изображения:</label>
-              <input class="form-control" v-model="newProduct.thumbnail_url" type="text" />
-            </div>
-            <div class="form-group">
-              <label for="productType">Тип:</label>
-              <input
-                id="productType"
-                class="form-control"
-                value="proector"
-                v-model="newProduct.type"
-                type="text"
-              />
-            </div>
-            <button style="color:white;" class="btn btn-primary" @click="addProduct">Добавить</button>
-          </form>
-        </div>
+              <div class="main-form col-lg-4 col-md-6 col-sm-8 offset-sm-2 col-10">
+              <p class="main-form-header"><span>Д</span>обавить план модернизации</p>
+              <form>
+                 <textarea class="form-control" v-model="newPlan.description" type="text" rows="7" Required placeholder="Описание"></textarea>
+                 <button class="main-form-btn" @click="addPlan" >Добавить</button>
+              </form>
+          </div>
+        </div>    
+      <hr />
       </section>
-      <hr />
-      <hr />
-      <div>
-        <h2>Заказы</h2>
-        <div v-if="trUsers.length">
-          <export-excel
-          style="color:white;" 
-            class="btn btn-primary"
-            :data="excelData"
-            :fields="json_fields"
-            worksheet="Data"
-            name="Export.xls"
-          >Выгрузить в Excel</export-excel>
-          <div v-for="u in trUsers" :item="u" :key="u.id">
-            <div class="t1">Пользователь: "{{ u.id }}"
-            <div v-for="o in u.orders.orders" :item="o" :key="o.id">
-                <div class="t2">Заказ: "{{ o.id }}"
-              <div v-for="i in o.items.items" :item="i" :key="i.id">
-                <div class="t3">Товар: id {{ i.id }} - цена {{ i.price}} - количество {{i.quantity}}</div>
-              </div></div>
-              <hr />
-            </div>
-          </div></div>
-        </div>
-        <div v-else>
-          <p>Нет заказов</p>
-        </div>
-      </div>
     </div>
   </div>
 </template>
+
 <script>
 import { mapActions, mapGetters } from "vuex";
-import { productsRef, transactionsRef } from "../config/firebaseConfig";
+import { productsRef, transactionsRef, modernizationRef } from "../config/firebaseConfig";
 
 export default {
   data() {
@@ -84,18 +43,24 @@ export default {
         Order: "order",
         ItemId: "itemId",
         ItemCount: "itemCount",
-        ItemPrice: "itemPrice"
+        ItemPrice: "itemPrice",
+
       },
       trUsers: [],
       newProduct: {
-        title: "Title",
-        description: "Description",
-        id: 123,
-        price: 1000,
+        title: "",
+        description: "",
+        id: 100,
+        price: 100,
         thumbnail_url:
-          "https://sun9-23.userapi.com/c204628/v204628644/283e/ItIPEowth6U.jpg",
-        type: "proector"
-      }
+          "https://tools.ru/catalog_files/category_10968/images/nG1-Grid.png"
+      },
+      json_fields_1: {
+        PlanDescription: "planDescription"       
+      },
+      newPlan: {
+        description: "",
+      },
     };
   },
 
@@ -106,26 +71,7 @@ export default {
       return this.isLoggedIn ? this.currentUser.email : "";
     },
     isAdmin() {
-      return this.userEmail == "user@mail.com";
-    },
-    excelData() {
-      let dataArray = [];
-
-      this.trUsers.forEach(u => {
-        u.orders.orders.forEach(o => {
-          o.items.items.forEach(i => {
-            dataArray.push({
-              user: u.id,
-              order: o.id,
-              itemId: i.id,
-              itemCount: i.quantity,
-              itemPrice: i.price
-            });
-          });
-        });
-      });
-      //console.log(dataArray);
-      return dataArray;
+      return this.userEmail == "alad_nastya@mail.ru";
     }
   },
   methods: {
@@ -135,7 +81,15 @@ export default {
 
       this.addMessage({
         messageClass: "success",
-        message: "Ваш товар был добавлен!"
+        message: "Товар был добавлен!"
+      });
+    },
+     addPlan() {
+      modernizationRef.push(this.newPlan);
+
+      this.addMessage({
+        messageClass: "success",
+        message: "План модернизации был добавлен!"
       });
     }
   },
@@ -195,5 +149,11 @@ font-weight: initial;
 .t3{
   margin-left: 5px;
   font-size: 12px;
+}
+.main-form-header {
+  text-align: center;
+  font-size: 20px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
 }
 </style>

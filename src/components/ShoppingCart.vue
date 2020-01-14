@@ -3,7 +3,7 @@
   <table id="cart" class="table table-hover table-sm cart__table">
     <thead>
       <tr>
-        <th style="width:50%">Продукт</th>
+        <th style="width:50%">Версия</th>
         <th style="width:10%">Цена</th>
         <th style="width:8%">Количество</th>
         <th style="width:22%" class="text-center">Всего</th>
@@ -19,11 +19,11 @@
   <div class="cart__result-wrapper">
     <strong class="cart__result">Всего {{ cartValue }}р</strong>
     <button class="cart__save" @click="saveShoppingCartLocal">
-      <i class="fa fa-angle-left"></i> продолжить покупки
+      <i class="fa fa-angle-left"></i> Продолжить покупку
     </button>
     
     <button class="cart__checkout" @click="checkout">
-        <span class="text-nowrap">Оформить <i class="fa fa-angle-right d-inline"></i></span>
+        <span class="text-nowrap">Оформить заказ<i class="fa fa-angle-right d-inline"></i></span>
     </button>
   </div>
 </div>
@@ -92,7 +92,7 @@ export default {
       } else {
         this.addMessage({
           messageClass: 'warning',
-          message: 'Авторизуйтесь, что бы сохранить вашу корзину'
+          message: 'Необходимо авторизоваться, чтобы сохранить товары в корзине'
         });
       }
     },
@@ -101,7 +101,7 @@ export default {
         if (!this.cartItemList || this.cartItemList.length == 0) {
           this.addMessage({
             messageClass: 'warning',
-            message: 'Ваша корзина пустаЯ!'
+            message: 'Корзина пуста!'
           });
           return;
         }
@@ -117,7 +117,7 @@ export default {
           }).then(() => {
             this.addMessage({
               messageClass: 'success',
-              message: 'Ваш заказ был отправлен на обработку!'
+              message: 'Заказ был отправлен на обработку!'
             });
             this.saveShoppingCart({
               cartItemList: [],
@@ -135,7 +135,7 @@ export default {
       } else {
         this.addMessage({
           messageClass: 'warning',
-          message: 'Пожалуйства авторизуйтесь для покупки'
+          message: 'Необходимо авторизоваться для покупки'
         });
       }
     }

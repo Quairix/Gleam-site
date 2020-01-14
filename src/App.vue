@@ -15,11 +15,12 @@
 
     <footer>
       <ul class="social__list">
-        <li><a class="social__links social__links--vk" href="https://vk.com/gleamprojector">Вконтакте</a></li>
+        <li><a class="social__links social__links--inst" href="https://www.instagram.com">Инстаграм</a></li>
+        <li><a class="social__links social__links--vk" href="https://vk.com/">Вконтакте</a></li>
         <li><a class="social__links social__links--tw" href="https://twitter.com">Твиттер</a></li>
-        <li><a class="social__links social__links--inst" href="https://www.instagram.com/gleam_projector/">Инстаграм</a></li>
+        
       </ul>
-      <p class="footer__copyright">© 2020 Gleam <a class="footer__link" href="https://vk.com/gleamprojector" target="_blank">https://vk.com/gleamprojector</a></p>
+      <p class="footer__copyright">© 2020 AnMoNet</p>
     </footer>
 </div>
 
