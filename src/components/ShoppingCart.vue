@@ -17,7 +17,7 @@
   </table>
 
   <div class="cart__result-wrapper">
-    <strong class="cart__result">Всего {{ cartValue }}р</strong>
+    <strong class="cart__result">Всего {{ cartValue }}$</strong>
     <button class="cart__save" @click="saveShoppingCartLocal">
       <i class="fa fa-angle-left"></i> Продолжить покупку
     </button>

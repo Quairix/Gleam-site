@@ -40,12 +40,12 @@ $grey: #626262;
 }
 
 .products__btn {
-     background-color: #ff5c36;
+      background-color: #ff5c36;
   border: none;
-  padding: 20px 20px;
+  padding: 15px 35px;
   display: block;
   margin: 0 auto;
-  margin-top: 10px;
+  margin-top: 25px;
   color: #ffffff;
   font-size: 16px;
   -webkit-border-radius: 50px;
@@ -53,8 +53,7 @@ $grey: #626262;
   -ms-border-radius: 50px;
   -o-border-radius: 50px;
   border-radius: 50px;
-    &:hover {
-        background-color: $grey;
-        color: #fff;
-    }
+}
+.products__btn:hover {
+  box-shadow: 0px 0px 35px 0px rgba(20, 20, 21, 0.7);
 }

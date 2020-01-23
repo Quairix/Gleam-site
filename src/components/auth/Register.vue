@@ -1,32 +1,22 @@
 <template>
-  <div class="row">
-    <div class="col-md-6 offset-md-3 col-sm-10 offset-sm-1">
-     <form id="register-form" role="form">
-        <h3 class="text-center">Регистрация</h3>
-        <div class="form-group">
-          <input type="email" name="email" id="email" class="form-control" placeholder="Email" value=""
+  <div class="row"> 
+    <div class= "col-lg-6 col-md-6 offset-md-3 col-sm-8 offset-lg-4 offset-sm-2 col-10">
+      <div class="main-form">
+        <p class="main-form-header"><span>Р</span>егистрация</p>
+        <form id="login-form" role="form" style="display: block;">
+           <input type="email" name="email" id="email" class="form-control" placeholder="Email" value=""
           v-model="email">
-        </div>
-        <div class="form-group">
-          <input type="password" name="password" id="password" class="form-control" placeholder="Пароль"
+           <input type="password" name="password" id="password" class="form-control" placeholder="Пароль"
           v-model="password">
-        </div>
-        <div class="form-group">
-            <button class="btn btn-success" style="width: 100%" @click.prevent="registerByEmailLocal" :disabled="isLoading">
-              <i v-if="isLoading" class="fa fa-spinner fa-spin" />
-              Зарегистрироваться
-            </button>
-        </div>
-        <div class="form-group">
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="text-center">
-                <router-link to="/login"><a>Войти</a></router-link>
-              </div>
+          <button class="main-form-btn" style="width: 100%" @click.prevent="registerByEmailLocal" :disabled="isLoading">Зарегистрироваться
+          </button>
+          <div class="col-lg-12">
+            <div class="text-center">
+              <router-link to="/login"><a>Войти</a></router-link>
             </div>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   </div>
 </template>

@@ -4,10 +4,12 @@
     <router-link :to="'/product/' + item.id"></router-link>
     <div class="products__wrapper">
       <router-link :to="'/product/' + item.id" tag="h5" class="products__title"><a>{{ item.title }}</a></router-link>
-      <p class="products__price">{{ item.price }}р</p>
+      <p class="products__price">{{ item.price }}$</p>
     </div>
-    <p class="products__description">{{ item.description | shortDescription}}</p>
-    <p class="products__type">{{ item.type | getTypeString}}</p>
+    <div class="img-event intrinsic">
+      <img :src="item.thumbnail_url" class="intrinsic-item p-3">
+    </div>
+    
     <button class="products__btn" :disabled="item.quantity === 0" @click="addItem">Добавить в корзину</button>
   </div>
 

@@ -1,33 +1,22 @@
 <template>
-<div class="row">
-  <div class="col-md-6 offset-md-3 col-sm-12 offset-sm-1">
-    <form id="login-form" role="form" style="display: block;">
-      <h3 class="text-center">Авторизация</h3>
-      <div class="form-group">
-        <input type="email" name="email" id="email" class="form-control" placeholder="Email" v-model="email">
-      </div>
-      <div class="form-group">
-        <input type="password" name="password" id="password" class="form-control" placeholder="Пароль" v-model="password">
-      </div>
-
-      <div class="form-group">
-        <button class="btn btn-success" style="width: 100%" @click.prevent="loginWithEmailLocal" :disabled="isLoading">
-            <i v-if="isLoading" class="fa fa-spinner fa-spin" />
-						Войти
-					</button>
-      </div>
-      <div class="form-group">
-        <div class="row">
+  <div class="row"> 
+    <div class= "col-lg-6 col-md-6 offset-md-3 col-sm-8 offset-lg-4 offset-sm-2 col-10">
+      <div class="main-form">
+        <p class="main-form-header"><span>А</span>вторизация</p>
+        <form id="login-form" role="form" style="display: block;">
+          <input type="email" name="email" id="email" class="form-control" placeholder="Email" v-model="email">
+          <input type="password" name="password" id="password" class="form-control" placeholder="Пароль" v-model="password">
+          <button class="main-form-btn" style="width: 100%" @click.prevent="loginWithEmailLocal" :disabled="isLoading">Войти
+          </button>
           <div class="col-lg-12">
             <div class="text-center">
               <router-link to="/register"><a>Регистрация</a></router-link>
             </div>
           </div>
-        </div>
+        </form>
       </div>
-    </form>
+    </div>
   </div>
-</div>
 </template>
 
 <script>
@@ -59,7 +48,7 @@ export default {
         let message_obj = {
           message: error.message,
           messageClass: "danger",
-          autoClose: true
+          autoClose: false
         }
         this.addMessage(message_obj);
       }).then(() => {

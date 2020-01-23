@@ -7,9 +7,9 @@
       <img class="product__img" :src="item.thumbnail_url">
       <div class="product__wrapper">
         <h2 class="product__title">{{ item.title }}</h2>
-        <h3 class="product__price">{{ item.price }} р</h3>
+        <h3 class="product__price">{{ item.price }}$</h3>       
         <p class="product__description">{{ item.description }}</p>
-        <button @click="addItem" :disabled="item.quantity === 0" class="product__btn">Добавить в корзину</button>
+        <button @click="addItem" :disabled="item.quantity === 0" class="main-form-btn">Добавить в корзину</button>
       </div>
     </div>
   </div>
@@ -28,8 +28,8 @@ export default {
   },
   data() {
     return {
-      loaderColor: "#5cb85c",
-      loaderSize: "50px",
+      loaderColor: "#ff5c36",
+      loaderSize: "30px",
     }
   },
   computed: {

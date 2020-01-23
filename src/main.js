@@ -7,6 +7,7 @@ import { firebaseListener } from './config/firebaseConfig';
 import './assets/styles/app.scss'
 import 'hooper/dist/hooper.css'
 
+
 import App from './App.vue';
 Vue.use(VueRouter);
  

@@ -4,9 +4,8 @@
       <div class="row text-center" v-if="isProductLoading">
         <grid-loader :loading="isProductLoading" :color="loaderColor" :size="loaderSize"></grid-loader>
       </div>
-
       <div class="row" v-if="!isProductLoading">
-        <hooper :autoPlay="false" :itemsToShow="2">
+        <hooper :autoPlay="false" :itemsToShow="1">
           <slide v-for="prod in products" :item="prod" :key="prod.id" :displayList="displayList">
             <app-product-item :item="prod"></app-product-item>
           </slide>
@@ -26,8 +25,8 @@ import { Hooper, Slide, Navigation as HooperNavigation } from "hooper";
 export default {
   data() {
     return {
-      loaderColor: "#5cb85c",
-      loaderSize: "50px",
+      loaderColor: "#ff5c36",
+      loaderSize: "30px",
       displayList: false
     };
   },

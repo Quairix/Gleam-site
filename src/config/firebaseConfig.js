@@ -28,3 +28,6 @@ export const productsRef = app.database().ref('products');
 export const transactionsRef = app.database().ref('transactions');
 export const feedbackRef = app.database().ref('feedback');
 export const modernizationRef = app.database().ref('modernization');
+export const votingsRef = app.database().ref('voting');
+export const gDataRef = app.database().ref('graphData');
+export const db = firebase.database();

@@ -3,11 +3,7 @@
     <div id="dashboard" v-if="isAdmin">
       <section>
         <div class="row"> 
-<<<<<<< Updated upstream
-            <div class="main-form col-lg-4 col-md-6 col-sm-8 offset-sm-1 ol-10">
-=======
             <div class="main-form col-lg-4 offset-lg-2 col-md-6 offset-md-3 col-sm-8 offset-sm-1 col-10">
->>>>>>> Stashed changes
               <p class="main-form-header"><span>Д</span>обавить версию</p>
               <form>
                 <input ref="title" class="form-control" v-model.trim="newProduct.title" type="text" placeholder="Название">
@@ -30,8 +26,6 @@
           </div>
         </div>    
       <hr />
-<<<<<<< Updated upstream
-=======
       <div class="hello" style=" text-align:center;">
       <h2 style="text-align: center">Ввод данных показателей</h2>
       <label>Значение нагрузки на сеть:</label>
@@ -80,7 +74,6 @@
           <p>Планов модернизации на ближайщее время нет</p>
         </div>
       </div> -->
->>>>>>> Stashed changes
       </section>
     </div>
   </div>
@@ -88,11 +81,33 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-import { productsRef, transactionsRef, modernizationRef } from "../config/firebaseConfig";
+import { productsRef, transactionsRef, modernizationRef, gDataRef} from "../config/firebaseConfig";
+import { db } from "../config/firebaseConfig";
+import colorForString from '../color'
 
 export default {
   data() {
+      let moderniz = [];
+    let gData = [{}];
+    
+    modernizationRef.once("value").then(dataSnapshot => {
+      dataSnapshot.forEach(o => {
+        o.forEach(i => {
+          moderniz.push(i.node_.value_);
+        });
+      });
+    });
+    gDataRef.once("value").then(o => {
+      o.forEach(i => {
+        gData.push({ name: i.key, count: i.node_.value_ });
+      });
+    });
+
     return {
+      moderniz: moderniz,
+      gData:gData,
+      movies: ["8:00", "12:00", "16:00", "20:00", "24:00"],
+      count: 0,
       json_fields: {
         User: "user",
         Order: "order",
@@ -139,6 +154,11 @@ export default {
         message: "Товар был добавлен!"
       });
     },
+     vote(movie) {
+      for (let i = 0; i < this.count; i++) db.ref("voting").push(movie);
+    },
+    colorForString,
+
      addPlan() {
       modernizationRef.push(this.newPlan);
 
@@ -148,7 +168,6 @@ export default {
       });
     }
   },
-
   created() {
     console.log("Data:");
     let users = [];
@@ -175,7 +194,32 @@ export default {
   }
 };
 </script>
+
 <style>
+/*ul {
+  display: inline-block;
+  list-style: none;
+  padding: 0;
+}
+li {
+  list-style: none;
+  cursor: pointer;
+  border: 3px solid;
+  border-radius: 6px;
+  min-width: 50%;
+  margin: 5px;
+  filter: brightness(80%);
+  z-index: 10;
+}
+li > div {
+  filter: brightness(156.25%);
+  border-radius: 2px;
+  padding: 10px 20px;
+}
+li > div > span {
+  filter: brightness(51.2%);
+  font-weight: bold;
+}*/
 .loadingItem {
   align-items: center;
   justify-content: center;
@@ -211,9 +255,6 @@ font-weight: initial;
   font-family: 'Open Sans', sans-serif;
   font-weight: 600;
 }
-<<<<<<< Updated upstream
-</style>
-=======
 
 table {
   text-align:center;
@@ -238,4 +279,3 @@ tr:hover td {
   background: #ccddff;
 }
 </style>
->>>>>>> Stashed changes

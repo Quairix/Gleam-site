@@ -35,7 +35,7 @@
           </router-link>
           <li class="header-top__cart-wrapper">
             <router-link to="/cart" class="header-top__cart" tag="button">
-              Корзина <span> (Руб {{ cartValue }})</span>
+              Корзина <span> ({{ cartValue }}$ )</span>
             </router-link>
           </li>
         </ul>      
