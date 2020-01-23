@@ -3,7 +3,11 @@
     <div id="dashboard" v-if="isAdmin">
       <section>
         <div class="row"> 
+<<<<<<< Updated upstream
             <div class="main-form col-lg-4 col-md-6 col-sm-8 offset-sm-1 ol-10">
+=======
+            <div class="main-form col-lg-4 offset-lg-2 col-md-6 offset-md-3 col-sm-8 offset-sm-1 col-10">
+>>>>>>> Stashed changes
               <p class="main-form-header"><span>Д</span>обавить версию</p>
               <form>
                 <input ref="title" class="form-control" v-model.trim="newProduct.title" type="text" placeholder="Название">
@@ -17,7 +21,7 @@
                  <button class="main-form-btn" @click="addProduct" >Добавить</button>
               </form>
           </div>
-              <div class="main-form col-lg-4 col-md-6 col-sm-8 offset-sm-2 col-10">
+              <div class="main-form col-lg-4 offset-lg-1 col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-10">
               <p class="main-form-header"><span>Д</span>обавить план модернизации</p>
               <form>
                  <textarea class="form-control" v-model="newPlan.description" type="text" rows="7" Required placeholder="Описание"></textarea>
@@ -26,6 +30,57 @@
           </div>
         </div>    
       <hr />
+<<<<<<< Updated upstream
+=======
+      <div class="hello" style=" text-align:center;">
+      <h2 style="text-align: center">Ввод данных показателей</h2>
+      <label>Значение нагрузки на сеть:</label>
+      <input v-model="count" type="number" />
+
+      <button
+        v-for="movie of movies"
+        :key="movie"
+        @click="vote(movie)"
+      >{{movie}}</button>
+    </div>
+    <hr/>
+
+    <div class="row">
+      <div class="col-lg-12 offset-lg-1">
+      <table style="width: 80%">
+      <td>
+        <tr v-for="m in moderniz" :item="m" :key="m">{{m}} </tr>
+      </td>
+    </table>
+
+    <table style=" margin-top: 20px; border: 1px solid black; width: 80% ">
+      <tr style="border: 1px solid black">
+        <td>
+          <b>Показатель</b>
+        </td>
+        <td>
+          <b>Значение</b>
+        </td>
+      </tr>
+      <tr v-for="m in gData" :item="m" :key="m.name">
+        <td>{{m.name}}</td>
+        <td>{{m.count}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+     <!--  <hr />
+      <div>
+        <h2>Планы модернизации</h2>
+        <div v-if="newPlan.length">   
+            <div class="t1">План: "{{ NewPlan.planDescription }}"
+          </div>
+        </div>
+        <div v-else>
+          <p>Планов модернизации на ближайщее время нет</p>
+        </div>
+      </div> -->
+>>>>>>> Stashed changes
       </section>
     </div>
   </div>
@@ -156,4 +211,31 @@ font-weight: initial;
   font-family: 'Open Sans', sans-serif;
   font-weight: 600;
 }
+<<<<<<< Updated upstream
 </style>
+=======
+
+table {
+  text-align:center;
+  border: 1px dashed #626262;
+  border-collapse: separate;
+  border-spacing: 10px;
+  background: -webkit-linear-gradient(bottom left, #eecfba, #c5dde8);
+  background: -o-linear-gradient(bottom left, #eecfba, #c5dde8);
+  background: linear-gradient(to top right, #eecfba, #c5dde8);
+}
+th {
+  font-weight: normal;
+  color: #039;
+  border-bottom: 1px dashed #69c;
+  padding: 12px 17px;
+}
+td {
+  color: #669;
+  padding: 7px 17px;
+}
+tr:hover td {
+  background: #ccddff;
+}
+</style>
+>>>>>>> Stashed changes
