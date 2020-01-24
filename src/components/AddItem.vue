@@ -63,17 +63,7 @@
     </table>
   </div>
 </div>
-     <!--  <hr />
-      <div>
-        <h2>Планы модернизации</h2>
-        <div v-if="newPlan.length">   
-            <div class="t1">План: "{{ NewPlan.planDescription }}"
-          </div>
-        </div>
-        <div v-else>
-          <p>Планов модернизации на ближайщее время нет</p>
-        </div>
-      </div> -->
+
       </section>
     </div>
   </div>
@@ -188,7 +178,6 @@ export default {
         users.push({ id: childSnapshot.key, orders: { orders } });
       });
     });
-    //console.log(users);
     this.trUsers = users;
     return users;
   }
@@ -196,30 +185,6 @@ export default {
 </script>
 
 <style>
-/*ul {
-  display: inline-block;
-  list-style: none;
-  padding: 0;
-}
-li {
-  list-style: none;
-  cursor: pointer;
-  border: 3px solid;
-  border-radius: 6px;
-  min-width: 50%;
-  margin: 5px;
-  filter: brightness(80%);
-  z-index: 10;
-}
-li > div {
-  filter: brightness(156.25%);
-  border-radius: 2px;
-  padding: 10px 20px;
-}
-li > div > span {
-  filter: brightness(51.2%);
-  font-weight: bold;
-}*/
 .loadingItem {
   align-items: center;
   justify-content: center;

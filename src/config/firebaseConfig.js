@@ -30,4 +30,5 @@ export const feedbackRef = app.database().ref('feedback');
 export const modernizationRef = app.database().ref('modernization');
 export const votingsRef = app.database().ref('voting');
 export const gDataRef = app.database().ref('graphData');
+export const chartRef = app.database().ref('chartData');
 export const db = firebase.database();
