@@ -17,6 +17,9 @@
     <p>
       <button @click="add()">Добавить</button>
     </p>
+    <p>
+      <button @click="deleteDay()">Удалить</button>
+    </p>
   </div>
 </template>
 
@@ -44,8 +47,20 @@ export default {
     filldata() {
       let labels = [];
       let data = [];
-
-      for (let d of this.dayData) {
+      let list = [];
+      for (let m of this.dayData) {
+        list.push({ label: m.label, value: m.value });
+      }
+      list.sort(function(a, b) {
+        if (a.label > b.label) {
+          return 1;
+        }
+        if (b.label > a.label) {
+          return -1;
+        }
+        return 0;
+      });
+      for (let d of list) {
         labels.push(d.label);
         data.push(d.value);
       }
@@ -97,6 +112,20 @@ export default {
     update(key, dayString, dayNewValue) {
       const edit = chartRef.child(key);
       edit.update({ day: dayString, dayValue: dayNewValue });
+    },
+    deleteDay() {
+      if (this.day != "") {
+        this.dayData.forEach(o => {
+          if (o.label == this.day) {
+            const edit = chartRef.child(o.key);
+            edit.remove();
+            //TODO: сделать break
+          }
+        });
+        this.load();
+        this.day = "";
+        this.dayValue = "";
+      }
     }
   }
 };
