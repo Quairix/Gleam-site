@@ -5,18 +5,24 @@
     <line-chart :chart-data="filldata"></line-chart>
 
     <h3 style="text-align: center">Ввод данных показателей</h3>
-    <label>День-число:</label>
-    <input v-model="day" type="text" />
-    <input v-model="day_value" type="number" />
+    <p>
+      <label>День:</label>
+      <input v-model="day" type="text" />
+    </p>
+    <p>
+      <label>Результат:</label>
+      <input v-model="dayValue" type="number" />
+    </p>
 
-    <button @click="add()">Добавить</button>
+    <p>
+      <button @click="add()">Добавить</button>
+    </p>
   </div>
 </template>
 
 <script>
 import Vue from "vue";
 import VueChart from "vue-chartjs";
-import colorForString from "../color";
 import LineChart from "./LineChart.js";
 import { chartRef } from "../config/firebaseConfig";
 
@@ -27,35 +33,30 @@ export default {
     LineChart
   },
   data() {
-    let votings = [];
-    chartRef.once("value", snapshot => {
-      snapshot.forEach(o => {
-        votings.push({ label: o.val().day, value: o.val().day_value });
-      });
-    });
+    this.load();
     return {
       day: "",
-      day_value: "",
-      votings: votings
+      dayValue: "",
+      dayData: []
     };
   },
   computed: {
     filldata() {
       let labels = [];
-      let backgroundColor = [];
       let data = [];
 
-      for (let voting of this.votings) {
-        labels.push(voting.label);
-        backgroundColor.push(colorForString(voting.label));
-        data.push(voting.value);
+      for (let d of this.dayData) {
+        labels.push(d.label);
+        data.push(d.value);
       }
       return {
         labels,
         datasets: [
           {
             label: "Статистика нагрузки на сеть за сутки",
-            backgroundColor: "#364dfa",
+            pointBackgroundColor: "#FF4dfa",
+            borderColor: "#36fa6a",
+            //backgroundColor:"#364dfa",
             data: data
           }
         ]
@@ -63,11 +64,39 @@ export default {
     }
   },
   methods: {
+    load() {
+      this.dayData = [];
+      chartRef.once("value", snapshot => {
+        snapshot.forEach(o => {
+          this.dayData.push({
+            key: o.key,
+            label: o.val().day,
+            value: o.val().dayValue
+          });
+        });
+      });
+    },
     add() {
-      this.votings.push({ label: this.day, value: this.day_value });
-      chartRef.push({ day: this.day, day_value: this.day_value });
-      this.day = "";
-      this.day_value = "";
+      if (this.day != "") {
+        let doAdd = true;
+        this.dayData.forEach(o => {
+          if (o.label == this.day) {
+            this.update(o.key, o.label, this.dayValue);
+            doAdd = false;
+            //TODO: сделать break
+          }
+        });
+        if (doAdd) {
+          chartRef.push({ day: this.day, dayValue: this.dayValue });
+        }
+        this.load();
+        this.day = "";
+        this.dayValue = "";
+      }
+    },
+    update(key, dayString, dayNewValue) {
+      const edit = chartRef.child(key);
+      edit.update({ day: dayString, dayValue: dayNewValue });
     }
   }
 };
