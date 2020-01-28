@@ -3,7 +3,11 @@
     <h1>Статистика нагрузки на сеть</h1>
     <div class="row text-center" v-if="!isLoaded">Загрузка...</div>
     <div class="row" v-if="isLoaded">
+<<<<<<< Updated upstream
       <div class="col-lg-7" style="width:60%; margin:auto">
+=======
+      <div style="width:40%; margin:auto">
+>>>>>>> Stashed changes
         <line-chart :chart-data="filldata"></line-chart>
       </div>
       <div class="row col-lg-3 col-md-2 col-sm-6" style="align-self: flex-start;">
@@ -19,11 +23,19 @@
         <div class="row" style="align-self: flex-start;">
           <p>
             <label>День:</label>
+<<<<<<< Updated upstream
             <input style="width:120px" v-model="day" type="date" />
           </p>
           <p style="padding-top:7px">
             <label>Результат:</label>
             <input style="width:50px" v-model="dayValue" type="number" />
+=======
+            <input class="form-control" style="width:170px" v-model="day" type="date" />
+          </p>
+          <p style="padding-top:7px">
+            <label>Нагрузка на устройство:</label>
+            <input class="form-control" style="width:100px" v-model="dayValue" type="number" />
+>>>>>>> Stashed changes
           </p>
         </div>
         <div class="row" style="align-self: flex-start;">
@@ -168,4 +180,8 @@ export default {
     }
   }
 };
+<<<<<<< Updated upstream
 </script>
+=======
+</script>
+>>>>>>> Stashed changes

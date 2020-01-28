@@ -11,7 +11,7 @@ import AddItem from './components/AddItem.vue';
 export const routes = [
 	{path: '/', component: Index, name: 'indexpage'},
 	{path: '/store', component: Store, name: 'mainpage'},
-	{path: '/about', component: About, name: 'about'},
+	{path: '/indicators', component: About, name: 'indicators'},
 	{path: '/support', component: Support, name: 'support'},
 	{path: '/product/:id', component: ProductDetails, name: 'product'},
 	{path: '/cart', component: ShoppingCart, name: 'shoppingcart'},

@@ -50,7 +50,11 @@
           <li><router-link class="header-bot__link" to="/store">Купить</router-link></li>
           <li><router-link class="header-bot__link" to="/support">Справка</router-link></li>
           <li v-if="isAdmin"><router-link class="header-bot__link" to="/add">Управление</router-link></li>
+<<<<<<< Updated upstream
           <li v-if="isAdmin"><router-link class="header-bot__link" to="/about">Показатели</router-link></li>
+=======
+          <li v-if="isAdmin"><router-link class="header-bot__link" to="/indicators">Показатели</router-link></li>
+>>>>>>> Stashed changes
         </ul>
 </div>
 </div>

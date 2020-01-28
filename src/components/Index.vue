@@ -26,20 +26,21 @@
 .hooper {
   height: 550px !important;
 }
-
 .loadingItem {
   align-items: center;
   justify-content: center;
   display: flex;
 }
-
 .action-panel {
   margin-bottom: 10px;
   margin-right: 5px;
 }
-
 .small {
   max-height: 200px;
   margin: 150px auto;
 }
+<<<<<<< Updated upstream
 </style>
+=======
+</style>
+>>>>>>> Stashed changes

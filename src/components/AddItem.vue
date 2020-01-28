@@ -87,19 +87,36 @@
               </tr>
               <tr v-for="m in devices" :item="m" :key="m">
                 <td>
+<<<<<<< Updated upstream
                   <input :id="m" type="text" :value="m" />
                 </td>
                 <td>
                   <button @click="update(m)">Изменить</button>
                   <button @click="deleteDevice(m)">Удалить</button>
+=======
+                  <input class="form-control" style="width:200px;margin-left:200px; padding:0px" :id="m" type="text" :value="m" />
+                </td>
+                <td>
+                   <div class="row" style="align-self: flex-start;">
+                  <button class="main-form-btn"   style="height:30px;margin:10px;padding:4px; font-size:12px;" @click="update(m)">Изменить</button>
+                  <button class="main-form-btn" style="height:30px;margin:10px; padding:4px; font-size:12px;" @click="deleteDevice(m)">Удалить</button>
+                </div>
+>>>>>>> Stashed changes
                 </td>
               </tr>
               <tr style="border: 1px solid black">
                 <td>
+<<<<<<< Updated upstream
                   <input type="text" v-model="newDevice" />
                 </td>
                 <td>
                   <button @click="add()">Добавить</button>
+=======
+                  <input class="form-control" style="width:200px; margin-left:200px; padding:0px" type="text" v-model="newDevice" />
+                </td>
+                <td>
+                  <button class="main-form-btn" style="height:30px; margin:10px; padding:4px; font-size:12px;" @click="add()">Добавить</button>
+>>>>>>> Stashed changes
                 </td>
               </tr>
             </table>
@@ -123,14 +140,21 @@ import colorForString from "../color";
 import Vue from "vue";
 import axios from "axios";
 import VueAxios from "vue-axios";
+<<<<<<< Updated upstream
 
 Vue.use(VueAxios, axios);
 
+=======
+Vue.use(VueAxios, axios);
+>>>>>>> Stashed changes
 export default {
   data() {
     let moderniz = [];
     let devices = [];
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     modernizationRef.once("value").then(dataSnapshot => {
       dataSnapshot.forEach(o => {
         o.forEach(i => {
@@ -143,7 +167,6 @@ export default {
         devices.push(i.key);
       });
     });
-
     return {
       moderniz: moderniz,
       devices: devices,
@@ -162,10 +185,8 @@ export default {
       }
     };
   },
-
   computed: {
     ...mapGetters(["isLoggedIn", "currentUser"]),
-
     userEmail() {
       return this.isLoggedIn ? this.currentUser.email : "";
     },
@@ -177,14 +198,16 @@ export default {
     ...mapActions(["addMessage"]),
     addProduct() {
       productsRef.push(this.newProduct);
-
       this.addMessage({
         messageClass: "success",
         message: "Товар был добавлен!"
       });
     },
     colorForString,
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     addPlan() {
       modernizationRef.push(this.newPlan);
       this.addMessage({
@@ -266,12 +289,14 @@ export default {
   justify-content: center;
   display: flex;
 }
-
 .action-panel {
   margin-bottom: 10px;
   margin-right: 5px;
 }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 .t1 {
   font-size: 20px;
   font-weight: bold;
@@ -280,7 +305,10 @@ export default {
   margin-left: 10px;
   margin-top: 5px;
 }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 .t2 {
   margin-left: 5px;
   font-size: 20px;
