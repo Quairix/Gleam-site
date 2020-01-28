@@ -39,8 +39,4 @@
   max-height: 200px;
   margin: 150px auto;
 }
-<<<<<<< Updated upstream
 </style>
-=======
-</style>
->>>>>>> Stashed changes
