@@ -3,7 +3,8 @@ import firebase from 'firebase'
 const config = {
   apiKey: "AIzaSyAHUkGvN3TG5k2fr2qQdeu2F2A-icf5lFU",
   authDomain: "anmonet-a11e2.firebaseio.com",
-  databaseURL: "https://anmonet-a11e2.firebaseio.com/"
+  databaseURL: "https://anmonet-a11e2.firebaseio.com/",
+  projectId: "anmonet-a11e2",
 }
 
 let app = firebase.initializeApp(config);
@@ -21,7 +22,6 @@ export function firebaseListener(func) {
     console.log(error)
   });
 }
-
 export const ref = firebase.database().ref();
 export const firebaseAuth = firebase.auth;
 export const productsRef = app.database().ref('products');

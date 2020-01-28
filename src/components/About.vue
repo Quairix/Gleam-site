@@ -11,6 +11,7 @@
           <div style="padding:7px 0 45px 0;">
             <h5 style="display:inline-block">Оборудование:</h5>
             <select class="form-control" @change="onChange($event)">
+               <option disabled selected>Выберите оборудование</option>
               <option v-for="d in devices" :key="d" :value="d">{{d}}</option>
             </select>
           </div>
@@ -53,14 +54,13 @@ export default {
     LineChart
   },
   data() {
-    this.load(db.ref("devices/device1"));
     return {
       isLoaded: false,
       day: "",
       dayValue: "",
       dayData: [],
       devices: [],
-      chartRef: db.ref("devices/device1")
+      chartRef: ''
     };
   },
   mounted() {
@@ -120,8 +120,8 @@ export default {
     },
     load(ref) {
       this.dayData = [];
-      ref.once("value", snapshot => {
-        snapshot.forEach(o => {
+      ref.once("value", s => {
+        s.forEach(o => {
           this.dayData.push({
             key: o.key,
             label: o.val().day,

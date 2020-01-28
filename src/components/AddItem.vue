@@ -2,68 +2,109 @@
   <div>
     <div id="dashboard" v-if="isAdmin">
       <section>
-        <div class="row"> 
-            <div class="main-form col-lg-4 offset-lg-2 col-md-6 offset-md-3 col-sm-8 offset-sm-1 col-10">
-              <p class="main-form-header"><span>Д</span>обавить версию</p>
-              <form>
-                <input ref="title" class="form-control" v-model.trim="newProduct.title" type="text" placeholder="Название">
-                 <textarea class="form-control" v-model="newProduct.description" type="text" Required placeholder="Описание"></textarea>
-                 <label for="productPrice">Цена ($):</label>
-                  <input class="form-control" v-model="newProduct.price" type="number" placeholder="Цена">
-                  <label for="productId">Id:</label>
-                 <input id="ProductId" class="form-control" v-model="newProduct.id" type="text" placeholder="Id"/>
-                 <label for="productURL">URL изображения:</label>
-                 <input class="form-control" v-model="newProduct.thumbnail_url" type="text" placeholder="URL изображения"/>
-                 <button class="main-form-btn" @click="addProduct" >Добавить</button>
-              </form>
+        <div class="row">
+          <div
+            class="main-form col-lg-4 offset-lg-2 col-md-6 offset-md-3 col-sm-8 offset-sm-1 col-10"
+          >
+            <p class="main-form-header">
+              <span>Д</span>обавить версию
+            </p>
+            <form>
+              <input
+                ref="title"
+                class="form-control"
+                v-model.trim="newProduct.title"
+                type="text"
+                placeholder="Название"
+              />
+              <textarea
+                class="form-control"
+                v-model="newProduct.description"
+                type="text"
+                required
+                placeholder="Описание"
+              ></textarea>
+              <label for="productPrice">Цена ($):</label>
+              <input
+                class="form-control"
+                v-model="newProduct.price"
+                type="number"
+                placeholder="Цена"
+              />
+              <label for="productId">Id:</label>
+              <input
+                id="ProductId"
+                class="form-control"
+                v-model="newProduct.id"
+                type="text"
+                placeholder="Id"
+              />
+              <label for="productURL">URL изображения:</label>
+              <input
+                class="form-control"
+                v-model="newProduct.thumbnail_url"
+                type="text"
+                placeholder="URL изображения"
+              />
+              <button class="main-form-btn" @click="addProduct">Добавить</button>
+            </form>
           </div>
-              <div class="main-form col-lg-4 offset-lg-1 col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-10">
-              <p class="main-form-header"><span>Д</span>обавить план модернизации</p>
-              <form>
-                 <textarea class="form-control" v-model="newPlan.description" type="text" rows="7" Required placeholder="Описание"></textarea>
-                 <button class="main-form-btn" @click="addPlan" >Добавить</button>
-              </form>
+          <div
+            class="main-form col-lg-4 offset-lg-1 col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-10"
+          >
+            <p class="main-form-header">
+              <span>Д</span>обавить план модернизации
+            </p>
+            <form>
+              <textarea
+                class="form-control"
+                v-model="newPlan.description"
+                type="text"
+                rows="7"
+                required
+                placeholder="Описание"
+              ></textarea>
+              <button class="main-form-btn" @click="addPlan">Добавить</button>
+            </form>
           </div>
-        </div>    
-      <hr />
-      <div class="hello" style=" text-align:center;">
-      <h2 style="text-align: center">Ввод данных показателей</h2>
-      <label>Значение нагрузки на сеть:</label>
-      <input v-model="count" type="number" />
+        </div>
+        <hr />
 
-      <button
-        v-for="movie of movies"
-        :key="movie"
-        @click="vote(movie)"
-      >{{movie}}</button>
-    </div>
-    <hr/>
+        <div class="row">
+          <div class="col-lg-12 offset-lg-1">
+            <table style="width: 80%">
+              <tr v-for="m in moderniz" :item="m" :key="m">
+                <td>{{m}}</td>
+              </tr>
+            </table>
 
-    <div class="row">
-      <div class="col-lg-12 offset-lg-1">
-      <table style="width: 80%">
-      <td>
-        <tr v-for="m in moderniz" :item="m" :key="m">{{m}} </tr>
-      </td>
-    </table>
-
-    <table style=" margin-top: 20px; border: 1px solid black; width: 80% ">
-      <tr style="border: 1px solid black">
-        <td>
-          <b>Показатель</b>
-        </td>
-        <td>
-          <b>Значение</b>
-        </td>
-      </tr>
-      <tr v-for="m in gData" :item="m" :key="m.name">
-        <td>{{m.name}}</td>
-        <td>{{m.count}}</td>
-      </tr>
-    </table>
-  </div>
-</div>
-
+            <table style=" margin-top: 20px; border: 1px solid black; width: 80% ">
+              <tr style="border: 1px solid black">
+                <td>
+                  <b>Оборудование</b>
+                </td>
+                <td></td>
+              </tr>
+              <tr v-for="m in devices" :item="m" :key="m">
+                <td>
+                  <input :id="m" type="text" :value="m" />
+                </td>
+                <td>
+                  <button @click="update(m)">Изменить</button>
+                  <button @click="deleteDevice(m)">Удалить</button>
+                </td>
+              </tr>
+              <tr style="border: 1px solid black">
+                <td>
+                  <input type="text" v-model="newDevice" />
+                </td>
+                <td>
+                  <button @click="add()">Добавить</button>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
       </section>
     </div>
   </div>
@@ -71,15 +112,25 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-import { productsRef, transactionsRef, modernizationRef, gDataRef} from "../config/firebaseConfig";
+import {
+  productsRef,
+  transactionsRef,
+  modernizationRef,
+  devicesRef
+} from "../config/firebaseConfig";
 import { db } from "../config/firebaseConfig";
-import colorForString from '../color'
+import colorForString from "../color";
+import Vue from "vue";
+import axios from "axios";
+import VueAxios from "vue-axios";
+
+Vue.use(VueAxios, axios);
 
 export default {
   data() {
-      let moderniz = [];
-    let gData = [{}];
-    
+    let moderniz = [];
+    let devices = [];
+
     modernizationRef.once("value").then(dataSnapshot => {
       dataSnapshot.forEach(o => {
         o.forEach(i => {
@@ -87,25 +138,16 @@ export default {
         });
       });
     });
-    gDataRef.once("value").then(o => {
+    devicesRef.once("value").then(o => {
       o.forEach(i => {
-        gData.push({ name: i.key, count: i.node_.value_ });
+        devices.push(i.key);
       });
     });
 
     return {
       moderniz: moderniz,
-      gData:gData,
-      movies: ["8:00", "12:00", "16:00", "20:00", "24:00"],
-      count: 0,
-      json_fields: {
-        User: "user",
-        Order: "order",
-        ItemId: "itemId",
-        ItemCount: "itemCount",
-        ItemPrice: "itemPrice",
-
-      },
+      devices: devices,
+      newDevice: "",
       trUsers: [],
       newProduct: {
         title: "",
@@ -115,12 +157,9 @@ export default {
         thumbnail_url:
           "https://tools.ru/catalog_files/category_10968/images/nG1-Grid.png"
       },
-      json_fields_1: {
-        PlanDescription: "planDescription"       
-      },
       newPlan: {
-        description: "",
-      },
+        description: ""
+      }
     };
   },
 
@@ -144,22 +183,59 @@ export default {
         message: "Товар был добавлен!"
       });
     },
-     vote(movie) {
-      for (let i = 0; i < this.count; i++) db.ref("voting").push(movie);
-    },
     colorForString,
 
-     addPlan() {
+    addPlan() {
       modernizationRef.push(this.newPlan);
-
       this.addMessage({
         messageClass: "success",
         message: "План модернизации был добавлен!"
       });
+    },
+    add() {
+      if (this.newDevice != "") {
+        db.ref("devices/" + this.newDevice).push({
+          day: "2020-01-01",
+          dayValue: "0"
+        });
+        this.load(db.ref("devices"));
+        this.newDevice = "";
+      }
+    },
+    load(ref) {
+      this.devices = [];
+      ref.once("value", snapshot => {
+        snapshot.forEach(o => {
+          this.devices.push(o.key);
+        });
+      });
+    },
+    async update(key) {
+      let data = [];
+      await db.ref("devices/" + key).once("value", o => {
+        o.forEach(d => {
+          data.push(d.val());
+        });
+      });
+      console.log(data);
+      console.log(data.length);
+      data.forEach(async o=>{
+      await db.ref("devices/" + document.getElementById(key).value).push(o);});
+      console.log("id==" + document.getElementById(key).value);
+      const edit = db.ref("devices").child(key);
+      edit.remove();
+      this.load(db.ref("devices"));
+      //TODO: сделать break
+    },
+    deleteDevice(m) {
+      const edit = db.ref("devices").child(m);
+      edit.remove();
+      this.load(db.ref("devices"));
+      this.day = "";
+      this.dayValue = "";
     }
   },
   created() {
-    console.log("Data:");
     let users = [];
     transactionsRef.once("value").then(dataSnapshot => {
       dataSnapshot.forEach(childSnapshot => {
@@ -196,7 +272,7 @@ export default {
   margin-right: 5px;
 }
 
-.t1{
+.t1 {
   font-size: 20px;
   font-weight: bold;
   border-left: 1px solid black;
@@ -205,24 +281,24 @@ export default {
   margin-top: 5px;
 }
 
-.t2{
+.t2 {
   margin-left: 5px;
-font-size: 20px;
-font-weight: initial;
+  font-size: 20px;
+  font-weight: initial;
 }
-.t3{
+.t3 {
   margin-left: 5px;
   font-size: 12px;
 }
 .main-form-header {
   text-align: center;
   font-size: 20px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: 600;
 }
 
 table {
-  text-align:center;
+  text-align: center;
   border: 1px dashed #626262;
   border-collapse: separate;
   border-spacing: 10px;
